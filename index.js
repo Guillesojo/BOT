@@ -7,4 +7,4 @@ request.send();
 request.onload = () => {
   console.log(request);
 };
-Bruh RBuh Bruh
+Bruh Bruh Bruh gie
