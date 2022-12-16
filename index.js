@@ -7,4 +7,4 @@ request.send();
 request.onload = () => {
   console.log(request);
 };
-GIE GIE GIE GIE JO
+Bruh RBuh Bruh
