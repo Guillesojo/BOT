@@ -16,6 +16,7 @@ async function getpair1() {
   const data = await response.json();
   document.getElementById("price1").textContent = data.pair.priceUsd;
   document.getElementById("chain1").textContent = data.pair.chainId;
+  return data.pair.priceUsd;
 }
 
 async function getpair2() {
@@ -23,7 +24,18 @@ async function getpair2() {
   const data = await response.json();
   document.getElementById("price2").textContent = data.pair.priceUsd;
   document.getElementById("chain2").textContent = data.pair.chainId;
+  return data.pair.priceUsd;
 }
+
+async function diff() {
+  const p1 = await getpair1();
+  const p2 = await getpair2();
+  const res = (p1 / p2) * 100 - 100;
+  const absres = Math.abs(res);
+  const result = absres.toFixed(4);
+  document.getElementById("pricediff").textContent = result;
+}
+
 getpair1();
 setInterval(() => {
   getpair1();
@@ -32,4 +44,9 @@ setInterval(() => {
 getpair2();
 setInterval(() => {
   getpair2();
+}, 5000);
+
+diff();
+setInterval(() => {
+  diff();
 }, 5000);
