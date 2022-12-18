@@ -1,12 +1,16 @@
-const request = new XMLHttpRequest();
-request.open(
-  "GET",
-  "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640"
-);
-request.send();
-request.onload = () => {
-  console.log(request);
-};
+// newFunction();
+// function newFunction() {
+//   const request = new XMLHttpRequest();
+//   request.open(
+//     "GET",
+//     "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640"
+//   );
+//   request.send();
+//   request.onload = () => {
+//     console.log(request);
+//   };
+// }
+
 function arb1(chain) {
   const pair1 =
     "https://api.dexscreener.com/latest/dex/pairs/harmony/0x7D183C0E2D2Db4ff643218b2bc05626522F862A7";
@@ -42,7 +46,7 @@ async function diff() {
   const res = (p1 / p2) * 100 - 100;
   const absres = Math.abs(res);
   const result = absres.toFixed(4);
-  document.getElementById("pricediff").textContent = result;
+  // document.getElementById("pricediff").textCo===ntent = result;
 }
 
 getpair1();
