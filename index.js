@@ -1,9 +1,9 @@
 function arb1(chain) {
   const pair1 =
-    "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640";
+    "https://api.dexscreener.com/latest/dex/pairs/harmony/0x7D183C0E2D2Db4ff643218b2bc05626522F862A7";
 
   const pair2 =
-    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x45dDa9cb7c25131DF268515131f647d726f50608";
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aaCE4D61ED65E225A74094defcB";
 
   if (chain == "1") {
     return pair1;
