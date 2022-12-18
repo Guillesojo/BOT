@@ -24,6 +24,20 @@ function arb1(chain) {
     return pair2;
   }
 }
+function screeners() {
+  var link1 = document.createElement("a");
+  link1.textContent = "screener";
+  link1.href =
+    "https://dexscreener.com/harmony/0x7d183c0e2d2db4ff643218b2bc05626522f862a7";
+  document.getElementById("scr1").appendChild(link1);
+
+  var link2 = document.createElement("a");
+  link2.textContent = "screener";
+  link2.href =
+    "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb";
+  document.getElementById("scr2").appendChild(link2);
+}
+
 async function getpair1() {
   const response = await fetch(arb1("1"));
   const data = await response.json();
@@ -63,3 +77,5 @@ diff();
 setInterval(() => {
   diff();
 }, 5000);
+
+screeners();
