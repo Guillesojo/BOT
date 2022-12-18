@@ -46,7 +46,7 @@ async function diff() {
   const res = (p1 / p2) * 100 - 100;
   const absres = Math.abs(res);
   const result = absres.toFixed(4);
-  // document.getElementById("pricediff").textCo===ntent = result;
+  document.getElementById("pricediff").textContent = result;
 }
 
 getpair1();
