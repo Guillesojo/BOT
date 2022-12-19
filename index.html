@@ -21,5 +21,32 @@
     </p>
     <p><span id="pricediff"></span>%</p>
     <script src="index.js"></script>
+    <p>Notificaciones</p>
+  <button type="button" onclick="notificar()">Enviar Notificacion</button>
+
+  <script src="index.js">
+    document.addEventListener("DOMContentLoaded", function(){
+      if(!Notification){
+        alert("Las notificaciones no se soportan en tu navegador, bajate uno mas nuevo gilipollas.");
+
+        return;
+      }
+
+      if(Notification.permission !== "granted"){
+        Notification.requestPermission();
+    };
+
+    function notificar(){
+      if(Notification.permission !== "granted"){
+        Notification.requestPermission();
+      }else{
+        var notification = new Notification("TITULOOOOOO MA GAE",
+          {
+            body: "TAL PAR TIENE 2% DE DIFERENCIA"
+          }
+        );
+      }
+    }
+    </script
   </body>
 </html>
