@@ -48,14 +48,49 @@ async function diff() {
 getpair1();
 setInterval(() => {
   getpair1();
-}, 5000);
+}, 2000);
 
 getpair2();
 setInterval(() => {
   getpair2();
-}, 5000);
+}, 2000);
 
 diff();
 setInterval(() => {
   diff();
-}, 5000);
+}, 2000);
+
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function(){
+    if(Notification){
+      alert("Las notificaciones so las soporta tu navegador, desgargate uno mas nuevo gilipollas");
+
+      return;
+    }
+
+    if(Notification.permission !== "granted")
+      Notification.requestPermission();
+  });
+
+  function notificar (){
+    if (Notification.permission !== "granted")
+      Notification.requestPermission();
+    }else{
+      var notification = new Notification("TITULO",
+        {
+          body:"PORCENTAJE DE LO QUE SE MOVIO"
+        }
+      );
+    }
+  }
+</script>
+
+
+
+
+
+
+
+
+
+</script>
