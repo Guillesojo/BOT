@@ -24,7 +24,7 @@
     <p>Notificaciones</p>
   <button type="button" onclick="notificar()">Enviar Notificacion</button>
 
-  <script src="index.js">
+  <script src="index.js"></script>
     document.addEventListener("DOMContentLoaded", function(){
       if(!Notification){
         alert("Las notificaciones no se soportan en tu navegador, bajate uno mas nuevo.");
@@ -47,6 +47,7 @@
         );
       }
     }
+    notificar()
     </script>
   </body>
 </html>
