@@ -24,7 +24,7 @@
     <p>Notificaciones</p>
     <button type="button" onclick="notificar()">Enviar Notificacion</button>
 
-    <script src="index.js">
+    <script src="index.js"></script>
       document.addEventListener("DOMContentLoaded", function(){
         if(!Notification){
           alert("Las notificaciones no se soportan en tu navegador, bajate uno mas nuevo.");
@@ -32,21 +32,22 @@
           return;
         }
 
-        if(Notification.permission !== "granted"){
-          Notification.requestPermission();
-      };
+      if(Notification.permission !== "granted"){
+        Notification.requestPermission();
+    };
 
-      function notificar(){
-        if(Notification.permission !== "granted"){
-          Notification.requestPermission();
-        }else{
-          var notification = new Notification("TITULOOOOOO MA GAE",
-            {
-              body: "TAL PAR TIENE 2% DE DIFERENCIA"
-            }
-          );
-        }
+    function notificar(){
+      if(Notification.permission !== "granted"){
+        Notification.requestPermission();
+      }else{
+        var notification = new Notification("TITULOOOOOO MA GAE",
+          {
+            body: "TAL PAR TIENE 2% DE DIFERENCIA"
+          }
+        );
       }
+    }
+    notificar()
     </script>
   </body>
 </html>
