@@ -13,17 +13,17 @@
 
 function arb1(chain) {
   const pair1 =
-    "https://api.dexscreener.com/latest/dex/pairs/harmony/0x7D183C0E2D2Db4ff643218b2bc05626522F862A7";
+    "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x4eCBc437911DcE221B5f885813cAA2C93ca64094";
 
   const pair2 =
-    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aaCE4D61ED65E225A74094defcB";
-
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x0297e37f1873d2dab4487aa67cd56b58e2f27875000100000000000000000002-0x2791bca1f2de4661ed88a30c99a7a9449aa84174-0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3";
   if (chain == "1") {
     return pair1;
   } else {
     return pair2;
   }
 }
+
 function screeners() {
   var link1 = document.createElement("a");
   link1.textContent = "screener";
