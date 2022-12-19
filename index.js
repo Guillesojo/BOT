@@ -1,12 +1,16 @@
-const request = new XMLHttpRequest();
-request.open(
-  "GET",
-  "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640"
-);
-request.send();
-request.onload = () => {
-  console.log(request);
-};
+// newFunction();
+// function newFunction() {
+//   const request = new XMLHttpRequest();
+//   request.open(
+//     "GET",
+//     "https://api.dexscreener.com/latest/dex/pairs/ethereum/0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640"
+//   );
+//   request.send();
+//   request.onload = () => {
+//     console.log(request);
+//   };
+// }
+
 function arb1(chain) {
   const pair1 =
     "https://api.dexscreener.com/latest/dex/pairs/harmony/0x7D183C0E2D2Db4ff643218b2bc05626522F862A7";
@@ -20,6 +24,20 @@ function arb1(chain) {
     return pair2;
   }
 }
+function screeners() {
+  var link1 = document.createElement("a");
+  link1.textContent = "screener";
+  link1.href =
+    "https://dexscreener.com/harmony/0x7d183c0e2d2db4ff643218b2bc05626522f862a7";
+  document.getElementById("scr1").appendChild(link1);
+
+  var link2 = document.createElement("a");
+  link2.textContent = "screener";
+  link2.href =
+    "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb";
+  document.getElementById("scr2").appendChild(link2);
+}
+
 async function getpair1() {
   const response = await fetch(arb1("1"));
   const data = await response.json();
@@ -57,40 +75,5 @@ setInterval(() => {
 
 diff();
 setInterval(() => {
-  diff();
+  diff(); HEAD
 }, 2000);
-
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function(){
-    if(Notification){
-      alert("Las notificaciones so las soporta tu navegador, desgargate uno mas nuevo gilipollas");
-
-      return;
-    }
-
-    if(Notification.permission !== "granted")
-      Notification.requestPermission();
-  });
-
-  function notificar (){
-    if (Notification.permission !== "granted")
-      Notification.requestPermission();
-    }else{
-      var notification = new Notification("TITULO",
-        {
-          body:"PORCENTAJE DE LO QUE SE MOVIO"
-        }
-      );
-    }
-  }
-</script>
-
-
-
-
-
-
-
-
-
-</script>
