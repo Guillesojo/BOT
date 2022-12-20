@@ -1,15 +1,15 @@
 var screen1 =
-  "https://dexscreener.com/harmony/0x7d183c0e2d2db4ff643218b2bc05626522f862a7";
+  "https://dexscreener.com/arbitrum/0xc73d2191a1dd0a99b377272899a5569ed83f8cd8";
 
 var screen2 =
-  "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb";
+  "https://dexscreener.com/polygon/0x1dab41a0e410c25857f0f49b2244cd089ab88de6";
 
 async function arb1() {
   const pair1 =
-    "https://api.dexscreener.com/latest/dex/pairs/bsc/0xc560f42334edab3b56ca9f99a7dd788f4010a231";
+    "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0xdd16a913f7a275525c3ef23c91df7ee52164ae50";
 
   const pair2 =
-    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x622753917443b4c7e62ec7bd9933b2d16a7795e9";
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x0db644468cd5c664a354e31aa1f6dba1d1dead47";
 
   async function getpair1() {
     const response = await fetch(pair1);
