@@ -1,9 +1,9 @@
 async function arb1() {
   const pair1 =
-    "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0xdd16a913f7a275525c3ef23c91df7ee52164ae50";
+    "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x86783a149FE417831aE8c59dD0e2b60664A3DFd1";
 
   const pair2 =
-    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x0db644468cd5c664a354e31aa1f6dba1d1dead47";
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aaCE4D61ED65E225A74094defcB";
 
   async function getpair1() {
     const response = await fetch(pair1);
@@ -16,6 +16,7 @@ async function arb1() {
   async function getpair2() {
     const response = await fetch(pair2);
     const data = await response.json();
+    xxxxxxxxxxxxxxxxxxxxxxx;
     document.getElementById("price2").textContent = data.pair.priceUsd;
     document.getElementById("chain2").textContent = data.pair.chainId;
     return data.pair.priceUsd;
