@@ -48,14 +48,14 @@ async function diff() {
 getpair1();
 setInterval(() => {
   getpair1();
-}, 2000);
+}, 5000);
 
 getpair2();
 setInterval(() => {
   getpair2();
-}, 2000);
+}, 5000);
 
 diff();
 setInterval(() => {
   diff();
-}, 2000);
+}, 5000);

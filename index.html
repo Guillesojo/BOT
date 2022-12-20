@@ -22,15 +22,15 @@
     <p><span id="pricediff"></span>%</p>
     <script src="index.js"></script>
     <p>Notificaciones</p>
-  <button type="button" onclick="notificar()">Enviar Notificacion</button>
+    <button type="button" onclick="notificar()">Enviar Notificacion</button>
 
-  <script src="index.js"></script>
-    document.addEventListener("DOMContentLoaded", function(){
-      if(!Notification){
-        alert("Las notificaciones no se soportan en tu navegador, bajate uno mas nuevo.");
+    <script src="index.js"></script>
+      document.addEventListener("DOMContentLoaded", function(){
+        if(!Notification){
+          alert("Las notificaciones no se soportan en tu navegador, bajate uno mas nuevo.");
 
-        return;
-      }
+          return;
+        }
 
       if(Notification.permission !== "granted"){
         Notification.requestPermission();
