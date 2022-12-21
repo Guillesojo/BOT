@@ -203,7 +203,7 @@ function screeners() {
   document.getElementById("scr25").appendChild(link25);
 
   var link26 = document.createElement("a");
-  link26textContent = "screener";
+  link26.textContent = "screener";
   link26.href = screen26;
   document.getElementById("scr26").appendChild(link26);
 }
