@@ -1,9 +1,9 @@
 async function arb1() {
   const pair1 =
-    "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x86783a149FE417831aE8c59dD0e2b60664A3DFd1";
+    "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x4d8bc902e9e6946f7e42aff2abdd24890d02ef0b";
 
   const pair2 =
-    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aaCE4D61ED65E225A74094defcB";
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x76bba00e6d8b037821538f61963e6922e17c98a8";
 
   async function getpair1() {
     const response = await fetch(pair1);
