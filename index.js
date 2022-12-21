@@ -35,18 +35,6 @@ async function arb1() {
   diff();
 }
 
-function screeners() {
-  var link1 = document.createElement("a");
-  link1.textContent = ".";
-  link1.href = screen1;
-  document.getElementById("scr1").appendChild(link1);
-
-  var link2 = document.createElement("a");
-  link2.textContent = ".";
-  link2.href = screen2;
-  document.getElementById("scr2").appendChild(link2);
-}
-
 arb1();
 setInterval(() => {
   arb1();
