@@ -186,7 +186,7 @@ function screeners() {
   link23.href = screen23;
   document.getElementById("scr23").appendChild(link23);
 
-  var link2 = document.createElement("a");
+  var link24 = document.createElement("a");
   link24.textContent = "screeer";
   link24.href = screen24;
   document.getElementById("scr24").appendChild(link24);
