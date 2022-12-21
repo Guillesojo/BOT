@@ -70,6 +70,12 @@ var screen23 =
 var screen24 =
   "https://dexscreener.com/polygon/0xcbf71c04148e5c463223f07a64a50f2df46b6cdc";
 
+var screen25 =
+  "https://dexscreener.com/polygon/0x76bba00e6d8b037821538f61963e6922e17c98a8";
+
+var screen26 =
+  "https://dexscreener.com/avalanche/0x4d8bc902e9e6946f7e42aff2abdd24890d02ef0b";
+
 function screeners() {
   var link1 = document.createElement("a");
   link1.textContent = "screener";
@@ -187,8 +193,18 @@ function screeners() {
   document.getElementById("scr23").appendChild(link23);
 
   var link24 = document.createElement("a");
-  link24.textContent = "screener";
+  link24.textContent = ".";
   link24.href = screen24;
   document.getElementById("scr24").appendChild(link24);
+
+  var link25 = document.createElement("a");
+  link25.textContent = ".";
+  link25.href = screen25;
+  document.getElementById("scr25").appendChild(link25);
+
+  var link26 = document.createElement("a");
+  link26textContent = ".";
+  link26.href = screen26;
+  document.getElementById("scr26").appendChild(link26);
 }
 screeners();
