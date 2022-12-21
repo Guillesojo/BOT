@@ -80,6 +80,7 @@ function screeners() {
   var link1 = document.createElement("a");
   link1.textContent = "screener";
   link1.href = screen1;
+  link1.target = "_blank";
   document.getElementById("scr1").appendChild(link1);
 
   var link2 = document.createElement("a");
