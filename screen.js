@@ -23,10 +23,10 @@ var screen8 =
   "https://dexscreener.com/fantom/0x03c6b3f09d2504606936b1a4decefad204687890000200000000000000000015-0x04068da6c83afcfa0e13ba15a6696662335d5b75-0xf24bcf4d1e507740041c9cfd2dddb29585adce1e";
 
 var screen9 =
-  "https://dexscreener.com/bsc/0xda55dec4e31a31076adf010ef8d74f2fdeb02e33";
+  "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb";
 
 var screen10 =
-  "https://dexscreener.com/polygon/0x5832ec0eb681c84784fbbd516a4e02412b1b7790";
+  "https://dexscreener.com/harmony/0x7d183c0e2d2db4ff643218b2bc05626522f862a7";
 
 var screen11 =
   "https://dexscreener.com/bsc/0x1955b7bf1ef1ecc5385bbcb2c13d529b035c6987";
