@@ -193,17 +193,17 @@ function screeners() {
   document.getElementById("scr23").appendChild(link23);
 
   var link24 = document.createElement("a");
-  link24.textContent = ".";
+  link24.textContent = "screener";
   link24.href = screen24;
   document.getElementById("scr24").appendChild(link24);
 
   var link25 = document.createElement("a");
-  link25.textContent = ".";
+  link25.textContent = "screener";
   link25.href = screen25;
   document.getElementById("scr25").appendChild(link25);
 
   var link26 = document.createElement("a");
-  link26textContent = ".";
+  link26textContent = "screener";
   link26.href = screen26;
   document.getElementById("scr26").appendChild(link26);
 }
