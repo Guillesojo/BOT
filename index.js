@@ -16,7 +16,7 @@ async function arb1() {
   async function getpair2() {
     const response = await fetch(pair2);
     const data = await response.json();
-    xxxxxxxxxxxxxxxxxxxxxxx;
+    ;
     document.getElementById("price2").textContent = data.pair.priceUsd;
     document.getElementById("chain2").textContent = data.pair.chainId;
     return data.pair.priceUsd;
