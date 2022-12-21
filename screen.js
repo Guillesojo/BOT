@@ -86,16 +86,19 @@ function screeners() {
   var link2 = document.createElement("a");
   link2.textContent = "screener";
   link2.href = screen2;
+  link2.target = "_blank";
   document.getElementById("scr2").appendChild(link2);
 
   var link3 = document.createElement("a");
   link3.textContent = "screener";
   link3.href = screen3;
+  link3.target = "_blank";
   document.getElementById("scr3").appendChild(link3);
 
   var link4 = document.createElement("a");
   link4.textContent = "screener";
   link4.href = screen4;
+  link4.target = "_blank";
   document.getElementById("scr4").appendChild(link4);
 
   var link5 = document.createElement("a");
