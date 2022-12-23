@@ -114,10 +114,10 @@ async function arb3() {
 
 async function arb4() {
   const pair1 =
-    "https://api.dexscreener.com/latest/dex/pairs/optimism/0xd6e5824b54f64ce6f1161210bc17eebffc77e031000100000000000000000006-0x4200000000000000000000000000000000000042-0x97513e975a7fa9072c72c92d8000b0db90b163c5";
+    "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1";
 
   const pair2 =
-    "https://api.dexscreener.com/latest/dex/pairs/fantom/0x03c6b3f09d2504606936b1a4decefad204687890000200000000000000000015-0x04068da6c83afcfa0e13ba15a6696662335d5b75-0xf24bcf4d1e507740041c9cfd2dddb29585adce1e";
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb";
 
   async function getpair1() {
     const response = await fetch(pair1);
@@ -188,6 +188,127 @@ async function arb5() {
   getpair2();
   diff();
 }
+
+async function arb6() {
+  const pair1 =
+    "https://api.dexscreener.com/latest/dex/pairs/bsc/0x1955b7bf1ef1ecc5385bbcb2c13d529b035c6987";
+
+  const pair2 =
+    "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x68fb75a9488e405630fb6a4d7cce7d194e295d31";
+
+  async function getpair1() {
+    const response = await fetch(pair1);
+    const data = await response.json();
+    document.getElementById("ticker11").textContent =
+      data.pair.baseToken.symbol;
+    document.getElementById("price11").textContent = data.pair.priceUsd;
+    document.getElementById("chain11").textContent = data.pair.chainId;
+    return data.pair.priceUsd;
+  }
+
+  async function getpair2() {
+    const response = await fetch(pair2);
+    const data = await response.json();
+    document.getElementById("ticker12").textContent =
+      data.pair.baseToken.symbol;
+    document.getElementById("price12").textContent = data.pair.priceUsd;
+    document.getElementById("chain12").textContent = data.pair.chainId;
+    return data.pair.priceUsd;
+  }
+
+  async function diff() {
+    const p1 = await getpair1();
+    const p2 = await getpair2();
+    const res = (p1 / p2) * 100 - 100;
+    const absres = Math.abs(res);
+    const result = absres.toFixed(4);
+    document.getElementById("pricediff6").textContent = result;
+  }
+  getpair1();
+  getpair2();
+  diff();
+}
+
+async function arb7() {
+  const pair1 =
+    "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x8d1a0676f7f3c4d55c59a963ee710540e6a3deba";
+
+  const pair2 =
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c";
+
+  async function getpair1() {
+    const response = await fetch(pair1);
+    const data = await response.json();
+    document.getElementById("ticker13").textContent =
+      data.pair.baseToken.symbol;
+    document.getElementById("price13").textContent = data.pair.priceUsd;
+    document.getElementById("chain13").textContent = data.pair.chainId;
+    return data.pair.priceUsd;
+  }
+
+  async function getpair2() {
+    const response = await fetch(pair2);
+    const data = await response.json();
+    document.getElementById("ticker14").textContent =
+      data.pair.baseToken.symbol;
+    document.getElementById("price14").textContent = data.pair.priceUsd;
+    document.getElementById("chain14").textContent = data.pair.chainId;
+    return data.pair.priceUsd;
+  }
+
+  async function diff() {
+    const p1 = await getpair1();
+    const p2 = await getpair2();
+    const res = (p1 / p2) * 100 - 100;
+    const absres = Math.abs(res);
+    const result = absres.toFixed(4);
+    document.getElementById("pricediff7").textContent = result;
+  }
+  getpair1();
+  getpair2();
+  diff();
+}
+
+async function arb8() {
+  const pair1 =
+    "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x518008472ab60b4450f9077ab6fcf72456613729";
+
+  const pair2 =
+    "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c";
+
+  async function getpair1() {
+    const response = await fetch(pair1);
+    const data = await response.json();
+    document.getElementById("ticker15").textContent =
+      data.pair.baseToken.symbol;
+    document.getElementById("price15").textContent = data.pair.priceUsd;
+    document.getElementById("chain15").textContent = data.pair.chainId;
+    return data.pair.priceUsd;
+  }
+
+  async function getpair2() {
+    const response = await fetch(pair2);
+    const data = await response.json();
+    document.getElementById("ticker16").textContent =
+      data.pair.baseToken.symbol;
+    document.getElementById("price16").textContent = data.pair.priceUsd;
+    document.getElementById("chain16").textContent = data.pair.chainId;
+    return data.pair.priceUsd;
+  }
+
+  async function diff() {
+    const p1 = await getpair1();
+    const p2 = await getpair2();
+    const res = (p1 / p2) * 100 - 100;
+    const absres = Math.abs(res);
+    const result = absres.toFixed(4);
+    document.getElementById("pricediff8").textContent = result;
+  }
+  getpair1();
+  getpair2();
+  diff();
+}
+
 arb1();
 setInterval(() => {
   arb1();
@@ -209,6 +330,21 @@ setInterval(() => {
 }, 5000);
 
 arb5();
+setInterval(() => {
+  arb1();
+}, 5000);
+
+arb6();
+setInterval(() => {
+  arb1();
+}, 5000);
+
+arb7();
+setInterval(() => {
+  arb1();
+}, 5000);
+
+arb8();
 setInterval(() => {
   arb1();
 }, 5000);
