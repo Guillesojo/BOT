@@ -1,11 +1,13 @@
 const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0xc73d2191a1dd0a99b377272899a5569ed83f8cd8",
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x4ecbc437911dce221b5f885813caa2c93ca64094",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x540ebc5c92839c300cb64d8350811aeee0c2b91d",
 ];
 
 const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x1dab41a0e410c25857f0f49b2244cd089ab88de6",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x0297e37f1873d2dab4487aa67cd56b58e2f27875000100000000000000000002-0x2791bca1f2de4661ed88a30c99a7a9449aa84174-0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x54db9acc40fd2ce8048fc36330502eedcecb71ba",
 ];
 
 async function arbs() {
@@ -14,11 +16,11 @@ async function arbs() {
     for (let i = 0; i < AP1.length; i++) {
       const response = await fetch(AP1[i]);
       const data = await response.json();
-      document.getElementById("ticker1-" + (i + 1)).textContent =
+      document.getElementById("tickerA" + (i + 1)).textContent =
         data.pair.baseToken.symbol;
-      document.getElementById("price1-" + (i + 1)).textContent =
+      document.getElementById("priceA" + (i + 1)).textContent =
         data.pair.priceUsd;
-      document.getElementById("chain1-" + (i + 1)).textContent =
+      document.getElementById("chainA" + (i + 1)).textContent =
         data.pair.chainId;
       prices.push(data.pair.priceUsd);
     }
@@ -31,11 +33,11 @@ async function arbs() {
     for (let i = 0; i < AP2.length; i++) {
       const response = await fetch(AP2[i]);
       const data = await response.json();
-      document.getElementById("ticker2-" + (i + 1)).textContent =
+      document.getElementById("tickerB" + (i + 1)).textContent =
         data.pair.baseToken.symbol;
-      document.getElementById("price2-" + (i + 1)).textContent =
+      document.getElementById("priceB" + (i + 1)).textContent =
         data.pair.priceUsd;
-      document.getElementById("chain2-" + (i + 1)).textContent =
+      document.getElementById("chainB" + (i + 1)).textContent =
         data.pair.chainId;
       prices.push(data.pair.priceUsd);
     }
