@@ -28,7 +28,7 @@ var screens = [
   "https://dexscreener.com/bsc/0x62616fe5495c04487ea15739045d4284ee99fdea",
   //10
   "https://dexscreener.com/bsc/0xc560f42334edab3b56ca9f99a7dd788f4010a231",
-  "https://dexscreener.com/polygon/0x622753917443b4c7e62ec7bd9933b2d16a7795e9",
+  "https://dexscreener.com/avalanche/0xbf669420e8b49070f94f7cb04b4a5ecdcd0420c2",
   //11
   "https://dexscreener.com/bsc/0x241684be091a90c08a99df68ca68e05d96e1de10",
   "https://dexscreener.com/polygon/0xcbf71c04148e5c463223f07a64a50f2df46b6cdc",

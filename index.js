@@ -8,6 +8,12 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x8d1a0676f7f3c4d55c59a963ee710540e6a3deba",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x518008472ab60b4450f9077ab6fcf72456613729",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xd6ab3f53b1d71837fc1d66b856eeba7b87157e50",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xc560f42334edab3b56ca9f99a7dd788f4010a231",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x241684be091a90c08a99df68ca68e05d96e1de10",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x76bba00e6d8b037821538f61963e6922e17c98a8",
+  "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x6716ed27f13161ce3374f0d2cc8cef181681e5eb",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x034293f21f1cce5908bc605ce5850df2b1059ac0",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x38fe052f0ce76a2239115589098d2fb5aba01d80",
 ];
 
 const AP2 = [
@@ -20,6 +26,12 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x62616fe5495c04487ea15739045d4284ee99fdea",
+  "https://api.dexscreener.com/latest/dex/pairs/avalanche/0xbf669420e8b49070f94f7cb04b4a5ecdcd0420c2",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbf71c04148e5c463223f07a64a50f2df46b6cdc",
+  "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x4d8bc902e9e6946f7e42aff2abdd24890d02ef0b",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xeb80530dbbdf489e7a20175ceaa80d4253062dd4",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xf65c1c0478efde3c19b49ecbe7acc57bb6b1d713",
+  "https://api.dexscreener.com/latest/dex/pairs/dogechain/0xcce4baa8e36141fea5cff847f0f81fcf55b178ef",
 ];
 
 async function arbs() {
