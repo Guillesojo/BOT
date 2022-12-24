@@ -6,3 +6,7 @@ body {
 .arbitrage {
   margin-bottom: 40px;
 }
+
+td {
+  padding: 10px;
+}
