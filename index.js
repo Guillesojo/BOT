@@ -75,4 +75,4 @@ async function arbs() {
 arbs();
 setInterval(() => {
   arbs();
-}, 10000);
+}, 30000);
