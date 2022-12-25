@@ -19,7 +19,6 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/cronos/0x5383202d48c24aaa19873366168f2ed558a00ff0",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xb556fed3b348634a9a010374c406824ae93f0cf8",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x13321acff4a27f3d2bca64b8beac6e5fdaaaf12c",
-
   "https://api.dexscreener.com/latest/dex/pairs/fantom/0xd57cda2caebb9b64bb88905c4de0f0da217a77d7000100000000000000000073-0x04068da6c83afcfa0e13ba15a6696662335d5b75-0x10010078a54396f62c96df8532dc2b4847d47ed3",
 ];
 
