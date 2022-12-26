@@ -60,8 +60,8 @@ var screens = [
   "https://dexscreener.com/bsc/0x13321acff4a27f3d2bca64b8beac6e5fdaaaf12c",
   "https://dexscreener.com/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
   //21
-  "https://dexscreener.com/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
-  "https://dexscreener.com/bsc/0xd5e5aff730f68d48bedaa7cb909473546a4c1a639",
+  "https://dexscreener.com/arbitrum/0x6716ed27f13161ce3374f0d2cc8cef181681e5eb",
+  "https://dexscreener.com/harmony/0x27f3b2df4a81382202e87ee40429e0212ecc7d3f",
   //22
   "https://dexscreener.com/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
   "https://dexscreener.com/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",

@@ -19,7 +19,7 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/cronos/0x5383202d48c24aaa19873366168f2ed558a00ff0",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xb556fed3b348634a9a010374c406824ae93f0cf8",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x13321acff4a27f3d2bca64b8beac6e5fdaaaf12c",
-  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x3178bd5abcfd24dc8cb1a3f793659a2d701f0b1f",
+  "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x6716ed27f13161ce3374f0d2cc8cef181681e5eb",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
 ];
@@ -45,7 +45,7 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x2f5e87c9312fa29aed5c179e456625d79015299c",
   "https://api.dexscreener.com/latest/dex/pairs/fantom/0x6badcf8184a760326528b11057c00952811f77af",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
-  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xd5e5aff730f68d48bedaa7cb909473546a4c1a63",
+  "https://api.dexscreener.com/latest/dex/pairs/harmony/0x27f3b2df4a81382202e87ee40429e0212ecc7d3f",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
 ];
@@ -108,7 +108,7 @@ async function arbs() {
 async function identify() {
   const results = await arbs();
   for (var i = 0; i < results.length; i++) {
-    if (results[i] >= 3) {
+    if (results[i] >= 4) {
       document.getElementById("pricediff" + (i + 1)).style.color = "green";
     } else {
       document.getElementById("pricediff" + (i + 1)).style.color = "red";
