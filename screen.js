@@ -68,6 +68,51 @@ var screens = [
   //23
   "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
   "https://dexscreener.com/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
+  //24
+  "https://dexscreener.com/cronos/0xb6894f071da907301b4f0c4d87d5f2e42e22402d",
+  "https://dexscreener.com/polygon/0xab86c5dd50f4e0b54ecb07c4fb07219c60150ebf",
+  //25
+  "https://dexscreener.com/optimism/0xad4c666fc170b468b19988959eb931a3676f0e9f",
+  "https://dexscreener.com/arbitrum/0xc24f7d8e51a64dc1238880bd00bb961d54cbeb29",
+  //26
+  "https://dexscreener.com/bsc/0x79c38d6c5ea40e9dd82d004bff98e3ec707d2c3d",
+  "https://dexscreener.com/polygon/0xad308b210356d69026c08c5f51089197d4bb59a6",
+  //27
+  "https://dexscreener.com/bsc/0x89c68051543fa135b31c2ce7bd8cdf392345ff01",
+  "https://dexscreener.com/polygon/0x5a6861566966654d0464ee5e3f3ec1a034f26cb",
+  //28
+  "https://dexscreener.com/bsc/0xf4796d9c3f192cfe5ddaca5724378590c6977f14",
+  "https://dexscreener.com/fantom/0x83c382cc27b05cc133b1882bc8a468d3c44551680002000000000000000004f5-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83-0x4f76664105ba7e35dd4904ec70f2042fc17563d9",
+  //29
+  "https://dexscreener.com/bsc/0xcff61aae2adc7960fdb4d5e26f3d503200396223",
+  "https://dexscreener.com/polygon/0x6db145bf810377fdcef7508a3e62d5f0c4e26ce6",
+  //30
+  "https://dexscreener.com/cronos/0x0fbab8a90cac61b481530aad3a64fe17b322c25d",
+  "https://dexscreener.com/fantom/0x1a2857b70d596eaa7182427c71cefd780a8f2aca",
+  //31
+  "https://dexscreener.com/polygon/0xadbd183ff04ff3dc9cd980f07b308c25df77e860",
+  "https://dexscreener.com/bsc/0x1766f21f6581ae7410dd7d481c384b2b70bcc42e",
+  "https://dexscreener.com/avalanche/0x6a0c03c0b933875daf767bb90584ba696b713243",
+  "https://dexscreener.com/bsc/0x8cb83d4b4a406589b78664add7060a79430c077a",
+  "https://dexscreener.com/cronos/0x8a01774bf0622cb45b207bf2baf0d694300dac60",
+  "https://dexscreener.com/polygon/0xd0595ff44638182e6b54051493ec0f045d04335f",
+  "https://dexscreener.com/fantom/0x9baa8eea25522234bbe36e93133db34711d3e66b",
+  "https://dexscreener.com/polygon/0xab4b9f608f2b5e53b259b1878b68b93a1309578b",
+  "https://dexscreener.com/bsc/0x41138b6466e1d92ae05495735d46586b74efad75",
+  "https://dexscreener.com/bsc/0x8205a8b42ee0bfdab43af3c971d97e150a1e48ae",
+  "https://dexscreener.com/polygon/0x78b1644539bb233d1477667ebd51d9db6ed7abcc",
+  "https://dexscreener.com/polygon/0x1baa09ad3e0c532d92a5bd5e48fff8c7e1cf0599",
+  "https://dexscreener.com/bsc/0xc2afcd40c3959f450bebdc55dc1306ce0ee892e4",
+  "https://dexscreener.com/fantom/0x9ba499753ea5407d5578718a8d37453ecbf609f9",
+  "https://dexscreener.com/arbitrum/0x7ffaf4698635a7679ce508160f2156b8739f37fe",
+  "https://dexscreener.com/fantom/0x297c8990134bf1ee08ae5d8805042fbac8781201",
+  "https://dexscreener.com/kcc/0x080dbc31cb82bb3263a86ad062fe80281cdf22ba",
+  "https://dexscreener.com/bsc/0x8e2132bb21143ef39098ba0428c7bcd2e0a20da6",
+  "https://dexscreener.com/polygon/0xd10bb4ed281a84492343573885168027cc625bf7",
+  "https://dexscreener.com/polygon/0xd15eb8710e28c23993968e671807d572189cc86e",
+  "https://dexscreener.com/cronos/0x722f19bd9a1e5ba97b3020c6028c279d27e4293c",
+  "https://dexscreener.com/polygon/0x290a4793b4e972188482b8046e7ea2ea5d3fdbaf",
+  "https://dexscreener.com/bsc/0x58aed290f42963a502626774bd8fa03f33c9b71f",
 ];
 
 function createLinks() {

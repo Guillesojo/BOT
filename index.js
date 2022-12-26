@@ -22,6 +22,15 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x6716ed27f13161ce3374f0d2cc8cef181681e5eb",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
+  "https://api.dexscreener.com/latest/dex/pairs/cronos/0xb6894f071da907301b4f0c4d87d5f2e42e22402d",
+  "https://api.dexscreener.com/latest/dex/pairs/optimism/0xad4c666fc170b468b19988959eb931a3676f0e9f",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x79c38d6c5ea40e9dd82d004bff98e3ec707d2c3d",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x89c68051543fa135b31c2ce7bd8cdf392345ff01",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xf4796d9c3f192cfe5ddaca5724378590c6977f14",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xcff61aae2adc7960fdb4d5e26f3d503200396223",
+  "https://api.dexscreener.com/latest/dex/pairs/cronos/0x0fbab8a90cac61b481530aad3a64fe17b322c25d",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xadbd183ff04ff3dc9cd980f07b308c25df77e860",
+  "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x6a0c03c0b933875daf767bb90584ba696b713243",
 ];
 
 const AP2 = [
@@ -48,42 +57,51 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/harmony/0x27f3b2df4a81382202e87ee40429e0212ecc7d3f",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xab86c5dd50f4e0b54ecb07c4fb07219c60150ebf",
+  "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0xc24f7d8e51a64dc1238880bd00bb961d54cbeb29",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xad308b210356d69026c08c5f51089197d4bb59a6",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x5a6861566966654d0464ee5e3f3ec1a034f26cbc",
+  "https://api.dexscreener.com/latest/dex/pairs/fantom/0x83c382cc27b05cc133b1882bc8a468d3c44551680002000000000000000004f5-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83-0x4f76664105ba7e35dd4904ec70f2042fc17563d9",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x6db145bf810377fdcef7508a3e62d5f0c4e26ce6",
+  "https://api.dexscreener.com/latest/dex/pairs/fantom/0x1a2857b70d596eaa7182427c71cefd780a8f2aca",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x1766f21f6581ae7410dd7d481c384b2b70bcc42e",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x8cb83d4b4a406589b78664add7060a79430c077a",
 ];
 async function arbs() {
+  async function getData(urlList, callback) {
+    const responses = await Promise.all(urlList.map((url) => fetch(url)));
+    const dataList = await Promise.all(
+      responses.map((response) => response.json())
+    );
+    const results = dataList.map((data, i) => callback(data, i));
+    return results;
+  }
+
   async function getpair1() {
-    const prices = [];
-    for (let i = 0; i < AP1.length; i++) {
-      const response = await fetch(AP1[i]);
-      const data = await response.json();
+    const prices = await getData(AP1, (data, i) => {
       document.getElementById("tickerA" + (i + 1)).textContent =
         data.pair.baseToken.symbol;
       document.getElementById("priceA" + (i + 1)).textContent =
         data.pair.priceUsd;
       document.getElementById("chainA" + (i + 1)).textContent =
         data.pair.chainId;
-
-      prices.push(data.pair.priceUsd);
-    }
+      return data.pair.priceUsd;
+    });
     return prices;
   }
-  getpair1();
 
   async function getpair2() {
-    const prices = [];
-    for (let i = 0; i < AP2.length; i++) {
-      const response = await fetch(AP2[i]);
-      const data = await response.json();
+    const prices = await getData(AP2, (data, i) => {
       document.getElementById("tickerB" + (i + 1)).textContent =
         data.pair.baseToken.symbol;
       document.getElementById("priceB" + (i + 1)).textContent =
         data.pair.priceUsd;
       document.getElementById("chainB" + (i + 1)).textContent =
         data.pair.chainId;
-      prices.push(data.pair.priceUsd);
-    }
+      return data.pair.priceUsd;
+    });
     return prices;
   }
-  getpair2();
 
   async function diff() {
     const resul = [];
@@ -100,7 +118,6 @@ async function arbs() {
     }
     return resul;
   }
-  diff();
   const res = diff();
   return res;
 }
@@ -108,19 +125,17 @@ async function arbs() {
 async function identify() {
   const results = await arbs();
   for (var i = 0; i < results.length; i++) {
-    if (results[i] >= 4) {
+    if (results[i] >= 5) {
       document.getElementById("pricediff" + (i + 1)).style.color = "green";
     } else {
       document.getElementById("pricediff" + (i + 1)).style.color = "red";
     }
   }
 }
-arbs();
-setInterval(() => {
-  arbs();
-}, 30000);
 
 identify();
+
 setInterval(() => {
+  arbs();
   identify();
 }, 30000);
