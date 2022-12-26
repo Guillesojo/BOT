@@ -1,5 +1,3 @@
-const { keccak256 } = require("ethers/lib/utils");
-
 const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0xc73d2191a1dd0a99b377272899a5569ed83f8cd8",
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x4ecbc437911dce221b5f885813caa2c93ca64094",
