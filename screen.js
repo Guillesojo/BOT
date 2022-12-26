@@ -60,8 +60,8 @@ var screens = [
   "https://dexscreener.com/bsc/0x13321acff4a27f3d2bca64b8beac6e5fdaaaf12c",
   "https://dexscreener.com/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
   //21
-  "https://dexscreener.com/fantom/0x843716e9386af1a26808d8e6ce3948d606ff115a00020000000000000000043a-0x10010078a54396f62c96df8532dc2b4847d47ed3-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
-  "https://dexscreener.com/optimism/0x588443c932b45f47e936b969eb5aa6b5fd4f3369",
+  "https://dexscreener.com/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
+  "https://dexscreener.com/bsc/0xd5e5aff730f68d48bedaa7cb909473546a4c1a639",
 ];
 
 function createLinks() {

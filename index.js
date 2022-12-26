@@ -19,7 +19,7 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/cronos/0x5383202d48c24aaa19873366168f2ed558a00ff0",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xb556fed3b348634a9a010374c406824ae93f0cf8",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x13321acff4a27f3d2bca64b8beac6e5fdaaaf12c",
-  "https://api.dexscreener.com/latest/dex/pairs/fantom/0x6aae93f2915b899e87b49a9254434d36ac9570d8",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x3178bd5abcfd24dc8cb1a3f793659a2d701f0b1f",
 ];
 
 const AP2 = [
@@ -43,7 +43,7 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x2f5e87c9312fa29aed5c179e456625d79015299c",
   "https://api.dexscreener.com/latest/dex/pairs/fantom/0x6badcf8184a760326528b11057c00952811f77af",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
-  "https://api.dexscreener.com/latest/dex/pairs/optimism/0x588443c932b45f47e936b969eb5aa6b5fd4f3369",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xd5e5aff730f68d48bedaa7cb909473546a4c1a63",
 ];
 async function arbs() {
   async function getpair1() {
@@ -57,6 +57,7 @@ async function arbs() {
         data.pair.priceUsd;
       document.getElementById("chainA" + (i + 1)).textContent =
         data.pair.chainId;
+
       prices.push(data.pair.priceUsd);
     }
     return prices;
