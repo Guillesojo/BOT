@@ -20,6 +20,8 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xb556fed3b348634a9a010374c406824ae93f0cf8",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x13321acff4a27f3d2bca64b8beac6e5fdaaaf12c",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x3178bd5abcfd24dc8cb1a3f793659a2d701f0b1f",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
 ];
 
 const AP2 = [
@@ -44,6 +46,8 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/fantom/0x6badcf8184a760326528b11057c00952811f77af",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0xd5e5aff730f68d48bedaa7cb909473546a4c1a63",
+  "https://api.dexscreener.com/latest/dex/pairs/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",
+  "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
 ];
 async function arbs() {
   async function getpair1() {
@@ -82,6 +86,7 @@ async function arbs() {
   getpair2();
 
   async function diff() {
+    const resul = [];
     const price1 = await getpair1();
     const price2 = await getpair2();
     for (var i = 0; i < AP1.length; i++) {
@@ -90,13 +95,32 @@ async function arbs() {
       const res = (p1 / p2) * 100 - 100;
       const absres = Math.abs(res);
       const result = absres.toFixed(4);
-      document.getElementById("pricediff" + (i + 1)).textContent = result;
+      document.getElementById("pricediff" + (i + 1)).textContent = result + "%";
+      resul.push(result);
     }
+    return resul;
   }
   diff();
+  const res = diff();
+  return res;
 }
 
+async function identify() {
+  const results = await arbs();
+  for (var i = 0; i < results.length; i++) {
+    if (results[i] >= 3) {
+      document.getElementById("pricediff" + (i + 1)).style.color = "green";
+    } else {
+      document.getElementById("pricediff" + (i + 1)).style.color = "red";
+    }
+  }
+}
 arbs();
 setInterval(() => {
   arbs();
+}, 30000);
+
+identify();
+setInterval(() => {
+  identify();
 }, 30000);

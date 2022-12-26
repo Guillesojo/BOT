@@ -62,6 +62,12 @@ var screens = [
   //21
   "https://dexscreener.com/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
   "https://dexscreener.com/bsc/0xd5e5aff730f68d48bedaa7cb909473546a4c1a639",
+  //22
+  "https://dexscreener.com/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
+  "https://dexscreener.com/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",
+  //23
+  "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
+  "https://dexscreener.com/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
 ];
 
 function createLinks() {
