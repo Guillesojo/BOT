@@ -14,3 +14,7 @@ td {
 p {
   margin-bottom: 1px;
 }
+
+.cell {
+  margin: 20px auto;
+}
