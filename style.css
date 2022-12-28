@@ -10,3 +10,11 @@ body {
 td {
   padding: 10px;
 }
+
+p {
+  margin-bottom: 0%;
+}
+
+.card {
+  margin: 20px auto;
+}
