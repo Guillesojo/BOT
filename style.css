@@ -13,8 +13,10 @@ td {
 
 p {
   margin-bottom: 1px;
+  color:red;
 }
 
 .card {
   margin: 20px auto;
+  background-color: red;
 }
