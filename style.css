@@ -4,17 +4,21 @@ body {
   font-size: 14px;
 }
 .arbitrage {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 td {
   padding: 10px;
 }
 
-p {
-  margin-bottom: 0%;
+.card-body {
+  line-height: 10px;
 }
 
 .card {
-  margin: 20px auto;
+  margin: 20px auto 10px auto;
+}
+
+p{
+  margin-bottom: 1px;
 }
