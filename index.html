@@ -8,531 +8,656 @@
     <!--CSS-->
     <link href="style.css" rel="stylesheet" />
     <!--Framework-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="bootstrap.min.css" rel="stylesheet" />
   </head>
-
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="cell col-lg-4 col-md-6 col-sm-12">
-    <div id="arb1" class="arbitrage">
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Arb notification bot</title>
+      <!--CSS-->
+      <link href="style.css" rel="stylesheet" />
+      <!--Framework-->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    </head>
+  
+    <body>
+      <!--Si quieren agregar algo adentro de cada cuadro escríbanlo adentro de card-body :) -->
+      <div class="container">
+        <div class="row">
+          <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb1" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA1"></span> on <span id="chainA1"></span>:
+          <span id="priceA1"></span>
+          <span id="scr1" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB1"></span> on <span id="chainB1"></span>:
+          <span id="priceB1"></span>
+          <span id="scr2" class="screener"></span>
+        </p>
+  
+        <p class="diff"><span id="pricediff1"></span></p>
+      </div>
+    </div></div></div>
+  
+    <div class="cell col-lg-4 col-md-6 col-sm-12">  
+    <div id="arb2" class="arbitrage">
       <div class="card">
         <div class="card-body">
-      <p>
-        <span id="tickerA1"></span> on <span id="chainA1"></span>:
-        <span id="priceA1"></span>
-        <span id="scr1" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB1"></span> on <span id="chainB1"></span>:
-        <span id="priceB1"></span>
-        <span id="scr2" class="screener"></span>
-      </p>
-
-      <p class="diff"><span id="pricediff1"></span></p>
-    </div>
-  </div></div></div>
-
-    <div id="arb2" class="arbitrage">
-      <p>
-        <span id="tickerA2"></span> on <span id="chainA2"></span>:
-        <span id="priceA2"></span>
-        <span id="scr3" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB2"></span> on <span id="chainB2"></span>:
-        <span id="priceB2"></span>
-        <span id="scr4" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff2"></span></p>
-    </div>
-
+        <p>
+          <span id="tickerA2"></span> on <span id="chainA2"></span>:
+          <span id="priceA2"></span>
+          <span id="scr3" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB2"></span> on <span id="chainB2"></span>:
+          <span id="priceB2"></span>
+          <span id="scr4" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff2"></span></p>
+      </div>
+    </div></div></div>
+  
+    <div class="cell col-lg-4 col-md-6 col-sm-12">  
     <div id="arb3" class="arbitrage">
-      <p>
-        <span id="tickerA3"></span> on <span id="chainA3"></span>:
-        <span id="priceA3"></span>
-        <span id="scr5" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB3"></span> on <span id="chainB3"></span>:
-        <span id="priceB3"></span>
-        <span id="scr6" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff3"></span></p>
-    </div>
-  </div>
-
-    <div id="arb4" class="arbitrage">
-      <p>
-        <span id="tickerA4"></span> on <span id="chainA4"></span>:
-        <span id="priceA4"></span>
-        <span id="scr7" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB4"></span> on <span id="chainB4"></span>:
-        <span id="priceB4"></span>
-        <span id="scr8" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff4"></span></p>
-    </div>
-
-    <div id="arb5" class="arbitrage">
-      <p>
-        <span id="tickerA5"></span> on <span id="chainA5"></span>:
-        <span id="priceA5"></span>
-        <span id="scr9" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB5"></span> on <span id="chainB5"></span>:
-        <span id="priceB5"></span>
-        <span id="scr10" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff5"></span></p>
-    </div>
-
-    <div id="arb6" class="arbitrage">
-      <p>
-        <span id="tickerA6"></span> on <span id="chainA6"></span>:
-        <span id="priceA6"></span>
-        <span id="scr11" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB6"></span> on <span id="chainB6"></span>:
-        <span id="priceB6"></span>
-        <span id="scr12" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff6"></span></p>
-    </div>
-
+      <div class="card">
+        <div class="card-body">
+        <p>
+          <span id="tickerA3"></span> on <span id="chainA3"></span>:
+          <span id="priceA3"></span>
+          <span id="scr5" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB3"></span> on <span id="chainB3"></span>:
+          <span id="priceB3"></span>
+          <span id="scr6" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff3"></span></p>
+      </div></div>
+  </div></div></div>
+  
+  <div class="row">
+    <div class="cell col-lg-4 col-md-6 col-sm-12">  
+  <div id="arb4" class="arbitrage">
+    <div class="card">
+      <div class="card-body">
+        <p>
+          <span id="tickerA4"></span> on <span id="chainA4"></span>:
+          <span id="priceA4"></span>
+          <span id="scr7" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB4"></span> on <span id="chainB4"></span>:
+          <span id="priceB4"></span>
+          <span id="scr8" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff4"></span></p>
+      </div>
+    </div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">  
+      <div id="arb5" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA5"></span> on <span id="chainA5"></span>:
+          <span id="priceA5"></span>
+          <span id="scr9" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB5"></span> on <span id="chainB5"></span>:
+          <span id="priceB5"></span>
+          <span id="scr10" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff5"></span></p>
+      </div>
+    </div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">  
+      <div id="arb6" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA6"></span> on <span id="chainA6"></span>:
+          <span id="priceA6"></span>
+          <span id="scr11" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB6"></span> on <span id="chainB6"></span>:
+          <span id="priceB6"></span>
+          <span id="scr12" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff6"></span></p>
+      </div>
+    </div></div></div></div>
+  
+    <div class="row">
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
     <div id="arb7" class="arbitrage">
-      <p>
-        <span id="tickerA7"></span> on <span id="chainA7"></span>:
-        <span id="priceA7"></span>
-        <span id="scr13" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB7"></span> on <span id="chainB7"></span>:
-        <span id="priceB7"></span>
-        <span id="scr14" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff7"></span></p>
-    </div>
-
-    <div id="arb8" class="arbitrage">
-      <p>
-        <span id="tickerA8"></span> on <span id="chainA8"></span>:
-        <span id="priceA8"></span>
-        <span id="scr15" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB8"></span> on <span id="chainB8"></span>:
-        <span id="priceB8"></span>
-        <span id="scr16" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff8"></span></p>
-    </div>
-
-    <div id="arb9" class="arbitrage">
-      <p>
-        <span id="tickerA9"></span> on <span id="chainA9"></span>:
-        <span id="priceA9"></span>
-        <span id="scr17" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB9"></span> on <span id="chainB9"></span>:
-        <span id="priceB9"></span>
-        <span id="scr18" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff9"></span></p>
-    </div>
-
+      <div class="card">
+        <div class="card-body">
+        <p>
+          <span id="tickerA7"></span> on <span id="chainA7"></span>:
+          <span id="priceA7"></span>
+          <span id="scr13" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB7"></span> on <span id="chainB7"></span>:
+          <span id="priceB7"></span>
+          <span id="scr14" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff7"></span></p>
+      </div> </div>   </div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb8" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA8"></span> on <span id="chainA8"></span>:
+          <span id="priceA8"></span>
+          <span id="scr15" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB8"></span> on <span id="chainB8"></span>:
+          <span id="priceB8"></span>
+          <span id="scr16" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff8"></span></p>
+      </div> </div>   </div> </div>
+  
+        <div class="cell col-lg-4 col-md-6 col-sm-12">
+        <div id="arb9" class="arbitrage">
+          <div class="card">
+            <div class="card-body">
+        <p>
+          <span id="tickerA9"></span> on <span id="chainA9"></span>:
+          <span id="priceA9"></span>
+          <span id="scr17" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB9"></span> on <span id="chainB9"></span>:
+          <span id="priceB9"></span>
+          <span id="scr18" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff9"></span></p>
+      </div> </div>   </div> </div>
+    </div>  
+  
+    <div class="row">
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
     <div id="arb10" class="arbitrage">
-      <p>
-        <span id="tickerA10"></span> on <span id="chainA10"></span>:
-        <span id="priceA10"></span>
-        <span id="scr19" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB10"></span> on <span id="chainB10"></span>:
-        <span id="priceB10"></span>
-        <span id="scr20" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff10"></span></p>
-    </div>
-
-    <div id="arb11" class="arbitrage">
-      <p>
-        <span id="tickerA11"></span> on <span id="chainA11"></span>:
-        <span id="priceA11"></span>
-        <span id="scr21" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB11"></span> on <span id="chainB11"></span>:
-        <span id="priceB11"></span>
-        <span id="scr22" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff11"></span></p>
-    </div>
-
-    <div id="arb12" class="arbitrage">
-      <p>
-        <span id="tickerA12"></span> on <span id="chainA12"></span>:
-        <span id="priceA12"></span>
-        <span id="scr23" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB12"></span> on <span id="chainB12"></span>:
-        <span id="priceB12"></span>
-        <span id="scr24" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff12"></span></p>
-    </div>
-
+      <div class="card">
+        <div class="card-body">
+        <p>
+          <span id="tickerA10"></span> on <span id="chainA10"></span>:
+          <span id="priceA10"></span>
+          <span id="scr19" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB10"></span> on <span id="chainB10"></span>:
+          <span id="priceB10"></span>
+          <span id="scr20" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff10"></span></p>
+      </div></div> </div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb11" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA11"></span> on <span id="chainA11"></span>:
+          <span id="priceA11"></span>
+          <span id="scr21" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB11"></span> on <span id="chainB11"></span>:
+          <span id="priceB11"></span>
+          <span id="scr22" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff11"></span></p>
+      </div></div> </div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb12" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA12"></span> on <span id="chainA12"></span>:
+          <span id="priceA12"></span>
+          <span id="scr23" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB12"></span> on <span id="chainB12"></span>:
+          <span id="priceB12"></span>
+          <span id="scr24" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff12"></span></p>
+      </div></div></div>
+    </div></div>
+  
+    <div class="row"> 
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
     <div id="arb13" class="arbitrage">
-      <p>
-        <span id="tickerA13"></span> on <span id="chainA13"></span>:
-        <span id="priceA13"></span>
-        <span id="scr25" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB13"></span> on <span id="chainB13"></span>:
-        <span id="priceB13"></span>
-        <span id="scr26" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff13"></span></p>
-    </div>
-
-    <div id="arb14" class="arbitrage">
-      <p>
-        <span id="tickerA14"></span> on <span id="chainA14"></span>:
-        <span id="priceA14"></span>
-        <span id="scr27" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB14"></span> on <span id="chainB14"></span>:
-        <span id="priceB14"></span>
-        <span id="scr28" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff14"></span></p>
-    </div>
-
-    <div id="arb15" class="arbitrage">
-      <p>
-        <span id="tickerA15"></span> on <span id="chainA15"></span>:
-        <span id="priceA15"></span>
-        <span id="scr29" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB15"></span> on <span id="chainB15"></span>:
-        <span id="priceB15"></span>
-        <span id="scr30" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff15"></span></p>
-    </div>
-
-    <div id="arb16" class="arbitrage">
-      <p>
-        <span id="tickerA16"></span> on <span id="chainA16"></span>:
-        <span id="priceA16"></span>
-        <span id="scr31" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB16"></span> on <span id="chainB16"></span>:
-        <span id="priceB16"></span>
-        <span id="scr32" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff16"></span></p>
-    </div>
-
-    <div id="arb17" class="arbitrage">
-      <p>
-        <span id="tickerA17"></span> on <span id="chainA17"></span>:
-        <span id="priceA17"></span>
-        <span id="scr33" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB17"></span> on <span id="chainB17"></span>:
-        <span id="priceB17"></span>
-        <span id="scr34" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff17"></span></p>
-    </div>
-
-    <div id="arb18" class="arbitrage">
-      <p>
-        <span id="tickerA18"></span> on <span id="chainA18"></span>:
-        <span id="priceA18"></span>
-        <span id="scr35" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB18"></span> on <span id="chainB18"></span>:
-        <span id="priceB18"></span>
-        <span id="scr36" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff18"></span></p>
-    </div>
-
-    <div id="arb19" class="arbitrage">
-      <p>
-        <span id="tickerA19"></span> on <span id="chainA19"></span>:
-        <span id="priceA19"></span>
-        <span id="scr37" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB19"></span> on <span id="chainB19"></span>:
-        <span id="priceB19"></span>
-        <span id="scr38" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff19"></span></p>
-    </div>
-
-    <div id="arb20" class="arbitrage">
-      <p>
-        <span id="tickerA20"></span> on <span id="chainA20"></span>:
-        <span id="priceA20"></span>
-        <span id="scr39" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB20"></span> on <span id="chainB20"></span>:
-        <span id="priceB20"></span>
-        <span id="scr40" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff20"></span></p>
-    </div>
-
-    <div id="arb21" class="arbitrage">
-      <p>
-        <span id="tickerA21"></span> on <span id="chainA21"></span>:
-        <span id="priceA21"></span>
-        <span id="scr41" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB21"></span> on <span id="chainB21"></span>:
-        <span id="priceB21"></span>
-        <span id="scr42" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff21"></span></p>
-    </div>
-
-    <div id="arb22" class="arbitrage">
-      <p>
-        <span id="tickerA22"></span> on <span id="chainA22"></span>:
-        <span id="priceA22"></span>
-        <span id="scr43" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB22"></span> on <span id="chainB22"></span>:
-        <span id="priceB22"></span>
-        <span id="scr44" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff22"></span></p>
-    </div>
-
-    <div id="arb23" class="arbitrage">
-      <p>
-        <span id="tickerA23"></span> on <span id="chainA23"></span>:
-        <span id="priceA23"></span>
-        <span id="scr45" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB23"></span> on <span id="chainB23"></span>:
-        <span id="priceB23"></span>
-        <span id="scr46" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff23"></span></p>
-    </div>
-
-    <div id="arb24" class="arbitrage">
-      <p>
-        <span id="tickerA24"></span> on <span id="chainA24"></span>:
-        <span id="priceA24"></span>
-        <span id="scr47" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB24"></span> on <span id="chainB24"></span>:
-        <span id="priceB24"></span>
-        <span id="scr48" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff24"></span></p>
-    </div>
-
-    <div id="arb25" class="arbitrage">
-      <p>
-        <span id="tickerA25"></span> on <span id="chainA25"></span>:
-        <span id="priceA25"></span>
-        <span id="scr49" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB25"></span> on <span id="chainB25"></span>:
-        <span id="priceB25"></span>
-        <span id="scr50" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff25"></span></p>
-    </div>
-
-    <div id="arb26" class="arbitrage">
-      <p>
-        <span id="tickerA26"></span> on <span id="chainA26"></span>:
-        <span id="priceA26"></span>
-        <span id="scr51" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB26"></span> on <span id="chainB26"></span>:
-        <span id="priceB26"></span>
-        <span id="scr52" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff26"></span></p>
-    </div>
-
-    <div id="arb27" class="arbitrage">
-      <p>
-        <span id="tickerA27"></span> on <span id="chainA27"></span>:
-        <span id="priceA27"></span>
-        <span id="scr53" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB27"></span> on <span id="chainB27"></span>:
-        <span id="priceB27"></span>
-        <span id="scr54" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff27"></span></p>
-    </div>
-
+      <div class="card">
+        <div class="card-body">
+        <p>
+          <span id="tickerA13"></span> on <span id="chainA13"></span>:
+          <span id="priceA13"></span>
+          <span id="scr25" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB13"></span> on <span id="chainB13"></span>:
+          <span id="priceB13"></span>
+          <span id="scr26" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff13"></span></p>
+      </div></div></div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb14" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA14"></span> on <span id="chainA14"></span>:
+          <span id="priceA14"></span>
+          <span id="scr27" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB14"></span> on <span id="chainB14"></span>:
+          <span id="priceB14"></span>
+          <span id="scr28" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff14"></span></p>
+      </div></div></div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb15" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA15"></span> on <span id="chainA15"></span>:
+          <span id="priceA15"></span>
+          <span id="scr29" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB15"></span> on <span id="chainB15"></span>:
+          <span id="priceB15"></span>
+          <span id="scr30" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff15"></span></p>
+      </div></div> </div></div></div> 
+  
+      <div class="row">
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb16" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA16"></span> on <span id="chainA16"></span>:
+          <span id="priceA16"></span>
+          <span id="scr31" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB16"></span> on <span id="chainB16"></span>:
+          <span id="priceB16"></span>
+          <span id="scr32" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff16"></span></p>
+      </div></div></div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb17" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA17"></span> on <span id="chainA17"></span>:
+          <span id="priceA17"></span>
+          <span id="scr33" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB17"></span> on <span id="chainB17"></span>:
+          <span id="priceB17"></span>
+          <span id="scr34" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff17"></span></p>
+      </div></div></div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb18" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA18"></span> on <span id="chainA18"></span>:
+          <span id="priceA18"></span>
+          <span id="scr35" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB18"></span> on <span id="chainB18"></span>:
+          <span id="priceB18"></span>
+          <span id="scr36" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff18"></span></p>
+      </div></div></div></div> </div>
+  
+      <div class="row"> 
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb19" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA19"></span> on <span id="chainA19"></span>:
+          <span id="priceA19"></span>
+          <span id="scr37" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB19"></span> on <span id="chainB19"></span>:
+          <span id="priceB19"></span>
+          <span id="scr38" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff19"></span></p>
+      </div></div></div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb20" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA20"></span> on <span id="chainA20"></span>:
+          <span id="priceA20"></span>
+          <span id="scr39" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB20"></span> on <span id="chainB20"></span>:
+          <span id="priceB20"></span>
+          <span id="scr40" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff20"></span></p>
+      </div></div></div> </div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb21" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA21"></span> on <span id="chainA21"></span>:
+          <span id="priceA21"></span>
+          <span id="scr41" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB21"></span> on <span id="chainB21"></span>:
+          <span id="priceB21"></span>
+          <span id="scr42" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff21"></span></p>
+      </div></div></div> </div></div>
+  
+     <div class="row">
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb22" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA22"></span> on <span id="chainA22"></span>:
+          <span id="priceA22"></span>
+          <span id="scr43" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB22"></span> on <span id="chainB22"></span>:
+          <span id="priceB22"></span>
+          <span id="scr44" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff22"></span></p>
+      </div></div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb23" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA23"></span> on <span id="chainA23"></span>:
+          <span id="priceA23"></span>
+          <span id="scr45" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB23"></span> on <span id="chainB23"></span>:
+          <span id="priceB23"></span>
+          <span id="scr46" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff23"></span></p>
+      </div></div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb24" class="arbitrage">
+        <div class="card">
+        <div class="card-body">
+        <p>
+          <span id="tickerA24"></span> on <span id="chainA24"></span>:
+          <span id="priceA24"></span>
+          <span id="scr47" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB24"></span> on <span id="chainB24"></span>:
+          <span id="priceB24"></span>
+          <span id="scr48" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff24"></span></p>
+      </div></div></div></div></div>
+  
+     <div class="row">
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb25" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA25"></span> on <span id="chainA25"></span>:
+          <span id="priceA25"></span>
+          <span id="scr49" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB25"></span> on <span id="chainB25"></span>:
+          <span id="priceB25"></span>
+          <span id="scr50" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff25"></span></p>
+      </div></div></div></div>
+    
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb26" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA26"></span> on <span id="chainA26"></span>:
+          <span id="priceA26"></span>
+          <span id="scr51" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB26"></span> on <span id="chainB26"></span>:
+          <span id="priceB26"></span>
+          <span id="scr52" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff26"></span></p>
+      </div></div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb27" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA27"></span> on <span id="chainA27"></span>:
+          <span id="priceA27"></span>
+          <span id="scr53" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB27"></span> on <span id="chainB27"></span>:
+          <span id="priceB27"></span>
+          <span id="scr54" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff27"></span></p>
+      </div></div>
+    </div></div></div>
+  
+    <div class="row">
+    <div class="cell col-lg-4 col-md-6 col-sm-12">
     <div id="arb28" class="arbitrage">
-      <p>
-        <span id="tickerA28"></span> on <span id="chainA28"></span>:
-        <span id="priceA28"></span>
-        <span id="scr55" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB28"></span> on <span id="chainB28"></span>:
-        <span id="priceB28"></span>
-        <span id="scr56" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff28"></span></p>
+      <div class="card">
+        <div class="card-body">
+        <p>
+          <span id="tickerA28"></span> on <span id="chainA28"></span>:
+          <span id="priceA28"></span>
+          <span id="scr55" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB28"></span> on <span id="chainB28"></span>:
+          <span id="priceB28"></span>
+          <span id="scr56" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff28"></span></p>
+      </div></div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb29" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA29"></span> on <span id="chainA29"></span>:
+          <span id="priceA29"></span>
+          <span id="scr57" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB29"></span> on <span id="chainB29"></span>:
+          <span id="priceB29"></span>
+          <span id="scr58" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff29"></span></p>
+      </div></div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb30" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA30"></span> on <span id="chainA30"></span>:
+          <span id="priceA30"></span>
+          <span id="scr59" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB30"></span> on <span id="chainB30"></span>:
+          <span id="priceB30"></span>
+          <span id="scr60" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff30"></span></p>
+      </div></div>
+    </div></div></div>
+  
+    <div class="row"> 
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb31" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA31"></span> on <span id="chainA31"></span>:
+          <span id="priceA31"></span>
+          <span id="scr61" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB31"></span> on <span id="chainB31"></span>:
+          <span id="priceB31"></span>
+          <span id="scr62" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff31"></span></p>
+      </div></div></div></div>
+  
+      <div class="cell col-lg-4 col-md-6 col-sm-12">
+      <div id="arb32" class="arbitrage">
+        <div class="card">
+          <div class="card-body">
+        <p>
+          <span id="tickerA32"></span> on <span id="chainA32"></span>:
+          <span id="priceA32"></span>
+          <span id="scr63" class="screener"></span>
+        </p>
+  
+        <p>
+          <span id="tickerB32"></span> on <span id="chainB32"></span>:
+          <span id="priceB32"></span>
+          <span id="scr64" class="screener"></span>
+        </p>
+  
+        <p><span id="pricediff32"></span></p>
+      </div></div></div></div>
     </div>
-
-    <div id="arb29" class="arbitrage">
-      <p>
-        <span id="tickerA29"></span> on <span id="chainA29"></span>:
-        <span id="priceA29"></span>
-        <span id="scr57" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB29"></span> on <span id="chainB29"></span>:
-        <span id="priceB29"></span>
-        <span id="scr58" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff29"></span></p>
-    </div>
-
-    <div id="arb30" class="arbitrage">
-      <p>
-        <span id="tickerA30"></span> on <span id="chainA30"></span>:
-        <span id="priceA30"></span>
-        <span id="scr59" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB30"></span> on <span id="chainB30"></span>:
-        <span id="priceB30"></span>
-        <span id="scr60" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff30"></span></p>
-    </div>
-
-    <div id="arb31" class="arbitrage">
-      <p>
-        <span id="tickerA31"></span> on <span id="chainA31"></span>:
-        <span id="priceA31"></span>
-        <span id="scr61" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB31"></span> on <span id="chainB31"></span>:
-        <span id="priceB31"></span>
-        <span id="scr62" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff31"></span></p>
-    </div>
-
-    <div id="arb32" class="arbitrage">
-      <p>
-        <span id="tickerA32"></span> on <span id="chainA32"></span>:
-        <span id="priceA32"></span>
-        <span id="scr63" class="screener"></span>
-      </p>
-
-      <p>
-        <span id="tickerB32"></span> on <span id="chainB32"></span>:
-        <span id="priceB32"></span>
-        <span id="scr64" class="screener"></span>
-      </p>
-
-      <p><span id="pricediff32"></span></p>
-    </div>
-  </div>
-
-    <script src="index.js"></script>
-    <script src="screen.js"></script>
-  </body>
+  
+      <script src="index.js"></script>
+      <script src="screen.js"></script>
+    </body>
+  </html>
 </html>
