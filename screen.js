@@ -95,8 +95,10 @@ var screens = [
   //32
   "https://dexscreener.com/avalanche/0x6a0c03c0b933875daf767bb90584ba696b713243",
   "https://dexscreener.com/bsc/0x8cb83d4b4a406589b78664add7060a79430c077a",
+  //
   "https://dexscreener.com/arbitrum/0x67d6cbf707fe5747989cb2c3758d101e11459ea9",
   "https://dexscreener.com/cronos/0x8a01774bf0622cb45b207bf2baf0d694300dac60",
+  //
   "https://dexscreener.com/polygon/0xd0595ff44638182e6b54051493ec0f045d04335f",
   "https://dexscreener.com/fantom/0x9baa8eea25522234bbe36e93133db34711d3e66b",
   //33
