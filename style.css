@@ -11,10 +11,14 @@ td {
 }
 
 .card {
-  margin: 20px 10px;
+  margin: 20px 10.5px;
   box-shadow: rgb(0 0 0 / 4%) 0px 4px 16px;
 }
 
 p {
   margin-bottom: 1px;
+}
+
+.row {
+  margin-left: 50px;
 }
