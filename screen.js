@@ -19,13 +19,11 @@ var screens = [
   "https://dexscreener.com/avalanche/0x68fb75a9488e405630fb6a4d7cce7d194e295d31",
   //7
   "https://dexscreener.com/arbitrum/0x8d1a0676f7f3c4d55c59a963ee710540e6a3deba",
-  "https://dexscreener.com/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c",
+  "https://dexscreener.com/polygon/0x77cdc7c61fa089e236dcc22427e37e7ea1adbfcf",
   //8
   "https://dexscreener.com/avalanche/0x518008472ab60b4450f9077ab6fcf72456613729",
-  "https://dexscreener.com/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c",
+  "https://dexscreener.com/polygon/0x77cdc7c61fa089e236dcc22427e37e7ea1adbfcf",
   //9
-  "https://dexscreener.com/polygon/0xd6ab3f53b1d71837fc1d66b856eeba7b87157e50",
-  "https://dexscreener.com/bsc/0x62616fe5495c04487ea15739045d4284ee99fdea",
   //10
   "https://dexscreener.com/bsc/0xc560f42334edab3b56ca9f99a7dd788f4010a231",
   "https://dexscreener.com/avalanche/0xbf669420e8b49070f94f7cb04b4a5ecdcd0420c2",
@@ -84,7 +82,6 @@ var screens = [
   "https://dexscreener.com/bsc/0xf4796d9c3f192cfe5ddaca5724378590c6977f14",
   "https://dexscreener.com/fantom/0x83c382cc27b05cc133b1882bc8a468d3c44551680002000000000000000004f5-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83-0x4f76664105ba7e35dd4904ec70f2042fc17563d9",
   //29
-
   //30
   "https://dexscreener.com/cronos/0x0fbab8a90cac61b481530aad3a64fe17b322c25d",
   "https://dexscreener.com/fantom/0x1a2857b70d596eaa7182427c71cefd780a8f2aca",
