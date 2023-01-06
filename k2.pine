@@ -86,7 +86,7 @@ vrsi = ta.rsi(price, length)
 co = ta.crossover(vrsi, overSold)
 cu = ta.crossunder(vrsi, overBought)
 
-// Calculate MACD
+// Calculate MAC
 fast_ma = sma_source ? ta.sma(src, fast_length) : ta.ema(src, fast_length)
 slow_ma = sma_source ? ta.sma(src, slow_length) : ta.ema(src, slow_length)
 macd = fast_ma - slow_ma
