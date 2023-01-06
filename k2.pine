@@ -6,14 +6,14 @@ period = timeframe.period
 strategy("Full strategy alert version", overlay=true, initial_capital = 1000, default_qty_type=strategy.percent_of_equity, default_qty_value=80, commission_type=strategy.commission.percent , commission_value=0.52 )
 
 // Declare input parameters with default values
-UseHAcandles = input(false, title="Use Heikin Ashi Candles in Algo Calculations")
+UseHAcandles = input(true, title="Use Heikin Ashi Candles in Algo Calculations")
 fromDay = input.int(defval = 1, title = "From Day", minval = 1, maxval = 31)
 fromMonth = input.int(defval = 1, title = "From Month", minval = 1, maxval = 12)
 fromYear = input.int(defval = 2023, title = "From Year", minval = 1970)
 toDay = input.int(defval = 31, title = "To Day", minval = 1, maxval = 31)
 toMonth = input.int(defval = 12, title = "To Month", minval = 1, maxval = 12)
 toYear = input.int(defval = 2023, title = "To Year", minval = 1970)
-len = input.int(25, minval=1, title="Length")
+len = input.int(20, minval=1, title="Length")
 src = input(close, title="Source")
 fast_length = input.int(title="Fast Length", defval=12)
 slow_length = input.int(title="Slow Length",  defval=26)
@@ -25,7 +25,7 @@ cc = input(true,title="Change Color Based On Direction?")
 smoothe = input.int(2, minval=1, maxval=10, title="Color Smoothing")
 doma2 = input(false, title="Optional 2nd Moving Average")
 len2 = input(50, title="Moving Average Length - Optional 2nd MA")
-atype2 = input.int(7,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
+atype2 = input.int(1,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
 cc2 = input(true,title="Change Color Based On Direction 2nd MA?")
 warn = input(false, title="***You Can Turn On The Show Dots Parameter Below Without Plotting 2nd MA to See Crosses***")
 warn2 = input(false, title="***If Using Cross Feature W/O Plotting 2ndMA - Make Sure 2ndMA Parameters are Set Correctly***")
@@ -67,7 +67,7 @@ ma_up = out_2 >= out_2[smoothe]
 ma_down = out_2 < out_2 [smoothe]
 circleYPosition = out_3
 
-stdev = ta.stdev(out_2, 30 )
+stdev = ta.stdev(hl2, 25 )
 upperBand = out_2 + stdev
 lowerBand = out_2 - stdev
 buySignal = ta.crossover(close, lowerBand)
@@ -79,11 +79,12 @@ plot(out_2 , title="Multi-Timeframe Moving Avg",  linewidth=4, color = color.blu
 
 //RSI
 length = input(14)
-overSold = input(30)
-overBought = input(70)
+overSold = input(35)
+overBought = input(100)
 price = close
 vrsi = ta.rsi(price, length)
-
+co = ta.crossover(vrsi, overSold)
+cu = ta.crossunder(vrsi, overBought)
 
 // Calculate MACD
 fast_ma = sma_source ? ta.sma(src, fast_length) : ta.ema(src, fast_length)
@@ -93,20 +94,20 @@ signal = sma_signal ? ta.sma(macd, signal_length) : ta.ema(macd, signal_length)
 hist = macd - signal
 
 // Calculate volume
-// r =   ta.cum(math.sign(ta.change(close)) * volume)
-// outvolume = ta.sma(ta.obv,10)
+r =   ta.cum(math.sign(ta.change(close)) * volume)
+outvolume = ta.sma(ta.obv,10)
 
 
 
 // Main variables to apply conditions
-long = hist > 0   and vrsi < overBought  and buySignal
-short =hist< 0    and vrsi > overSold and sellSignal
-exitLongCondition = vrsi > overBought and sellSignal
-exitShortCondition = vrsi < overSold and buySignal
+long = haClose > out_2 and haClose > haClose[1] and out_2 > out_2[1] and hist > 0 and hist[1] < 0 and time_cond  and vrsi < overBought and ta.obv > outvolume or buySignal
+short = haClose < out_2 and haClose < haClose[1] and out_2 < out_2[1] and hist < 0 and hist[1] > 0 and time_cond  and vrsi > overSold and ta.obv < outvolume or sellSignal
+exitLongCondition = vrsi > overBought or haClose < out_2 or ta.obv < outvolume  and sellSignal
+exitShortCondition = vrsi < overSold or haClose > out_2 or ta.obv > outvolume and buySignal
 
 // Declare input parameter for stop loss percentage
-stopLossPercent = input.float(title="Stop Loss Percentage", minval=0.0, maxval=100.0, defval=94)
-stopLossPercentS = input.float(title="Stop Loss Percentage", minval=100, maxval=200, defval=104)
+stopLossPercent = input.float(title="Stop Loss Percentage", minval=0.0, maxval=100.0, defval=80)
+stopLossPercentS = input.float(title="Stop Loss Percentage", minval=100, maxval=200, defval=120)
 stopLossLevel = strategy.position_avg_price * (stopLossPercent / 100)
 stopLossLevelS = strategy.position_avg_price * (stopLossPercentS/ 100)
 
