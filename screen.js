@@ -59,7 +59,7 @@ var screens = [
   "https://dexscreener.com/polygon/0xf67de5cf1fb01dc4df842a846df2a7ec07c41b93",
   //21
   "https://dexscreener.com/arbitrum/0x6716ed27f13161ce3374f0d2cc8cef181681e5eb",
-  "https://dexscreener.com/optimism/0x17d99c78f1aa7870ab30fb3e93b2fe9f6502d192",
+  "https://dexscreener.com/fantom/0x1656728af3a14e1319f030dc147fabf6f627059e",
   //22
   "https://dexscreener.com/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
   "https://dexscreener.com/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",
