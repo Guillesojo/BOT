@@ -7,7 +7,6 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x1955b7bf1ef1ecc5385bbcb2c13d529b035c6987",
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x8d1a0676f7f3c4d55c59a963ee710540e6a3deba",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x518008472ab60b4450f9077ab6fcf72456613729",
-  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xd6ab3f53b1d71837fc1d66b856eeba7b87157e50",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0xc560f42334edab3b56ca9f99a7dd788f4010a231",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x241684be091a90c08a99df68ca68e05d96e1de10",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x76bba00e6d8b037821538f61963e6922e17c98a8",
@@ -26,11 +25,14 @@ const AP1 = [
   "https://api.dexscreener.com/latest/dex/pairs/optimism/0xad4c666fc170b468b19988959eb931a3676f0e9f",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x79c38d6c5ea40e9dd82d004bff98e3ec707d2c3d",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x89c68051543fa135b31c2ce7bd8cdf392345ff01",
-  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xf4796d9c3f192cfe5ddaca5724378590c6977f14",
-  "https://api.dexscreener.com/latest/dex/pairs/bsc/0xcff61aae2adc7960fdb4d5e26f3d503200396223",
+
   "https://api.dexscreener.com/latest/dex/pairs/cronos/0x0fbab8a90cac61b481530aad3a64fe17b322c25d",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xadbd183ff04ff3dc9cd980f07b308c25df77e860",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x6a0c03c0b933875daf767bb90584ba696b713243",
+  "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0x67d6cbf707fe5747989cb2c3758d101e11459ea9",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xd0595ff44638182e6b54051493ec0f045d04335f",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xab4b9f608f2b5e53b259b1878b68b93a1309578b",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x8205a8b42ee0bfdab43af3c971d97e150a1e48ae",
 ];
 
 const AP2 = [
@@ -40,9 +42,8 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/harmony/0x7d183c0e2d2db4ff643218b2bc05626522f862a7",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x68fb75a9488e405630fb6a4d7cce7d194e295d31",
-  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c",
-  "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbd258f33b7a2705e8418708a4f615c43fedf23c",
-  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x62616fe5495c04487ea15739045d4284ee99fdea",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x77cdc7c61fa089e236dcc22427e37e7ea1adbfcf",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x77cdc7c61fa089e236dcc22427e37e7ea1adbfcf",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0xbf669420e8b49070f94f7cb04b4a5ecdcd0420c2",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xcbf71c04148e5c463223f07a64a50f2df46b6cdc",
   "https://api.dexscreener.com/latest/dex/pairs/avalanche/0x4d8bc902e9e6946f7e42aff2abdd24890d02ef0b",
@@ -61,11 +62,13 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/arbitrum/0xc24f7d8e51a64dc1238880bd00bb961d54cbeb29",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0xad308b210356d69026c08c5f51089197d4bb59a6",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x5a6861566966654d0464ee5e3f3ec1a034f26cbc",
-  "https://api.dexscreener.com/latest/dex/pairs/fantom/0x83c382cc27b05cc133b1882bc8a468d3c44551680002000000000000000004f5-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83-0x4f76664105ba7e35dd4904ec70f2042fc17563d9",
-  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x6db145bf810377fdcef7508a3e62d5f0c4e26ce6",
   "https://api.dexscreener.com/latest/dex/pairs/fantom/0x1a2857b70d596eaa7182427c71cefd780a8f2aca",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x1766f21f6581ae7410dd7d481c384b2b70bcc42e",
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x8cb83d4b4a406589b78664add7060a79430c077a",
+  "https://api.dexscreener.com/latest/dex/pairs/cronos/0x8a01774bf0622cb45b207bf2baf0d694300dac60",
+  "https://api.dexscreener.com/latest/dex/pairs/fantom/0x9baa8eea25522234bbe36e93133db34711d3e66b",
+  "https://api.dexscreener.com/latest/dex/pairs/bsc/0x41138b6466e1d92ae05495735d46586b74efad75",
+  "https://api.dexscreener.com/latest/dex/pairs/polygon/0x78b1644539bb233d1477667ebd51d9db6ed7abcc",
 ];
 async function arbs() {
   async function getData(urlList, callback) {
