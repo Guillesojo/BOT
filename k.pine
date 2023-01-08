@@ -3,16 +3,17 @@ tickerid = syminfo.tickerid
 period = timeframe.period
 
 //@optimize
-strategy("Full strategy alert version", overlay=true, initial_capital = 1000, default_qty_type=strategy.percent_of_equity, default_qty_value=80, commission_type=strategy.commission.percent , commission_value=0.52 )
+strategy("Full strategy alert version", overlay=true, initial_capital = 1000, default_qty_type=strategy.percent_of_equity, default_qty_value=170,commission_type=strategy.commission.percent , commission_value=0.52)
 
-// Declare input parameters with default values
-UseHAcandles = input(false, title="Use Heikin Ashi Candles in Algo Calculations")
+//time
 fromDay = input.int(defval = 1, title = "From Day", minval = 1, maxval = 31)
 fromMonth = input.int(defval = 1, title = "From Month", minval = 1, maxval = 12)
 fromYear = input.int(defval = 2023, title = "From Year", minval = 1970)
 toDay = input.int(defval = 31, title = "To Day", minval = 1, maxval = 31)
 toMonth = input.int(defval = 12, title = "To Month", minval = 1, maxval = 12)
 toYear = input.int(defval = 2023, title = "To Year", minval = 1970)
+
+
 len = input.int(25, minval=1, title="Length")
 src = input(close, title="Source")
 fast_length = input.int(title="Fast Length", defval=12)
@@ -21,14 +22,10 @@ signal_length = input.int(title="Signal Smoothing", minval = 1, maxval = 50, def
 sma_source = input.bool(title="Simple MA (Oscillator)",  defval=false)
 sma_signal = input.bool(title="Simple MA (Signal Line)",  defval=false)
 atype = input.int(1,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
-cc = input(true,title="Change Color Based On Direction?")
 smoothe = input.int(2, minval=1, maxval=10, title="Color Smoothing")
 doma2 = input(false, title="Optional 2nd Moving Average")
 len2 = input(50, title="Moving Average Length - Optional 2nd MA")
 atype2 = input.int(7,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
-cc2 = input(true,title="Change Color Based On Direction 2nd MA?")
-warn = input(false, title="***You Can Turn On The Show Dots Parameter Below Without Plotting 2nd MA to See Crosses***")
-warn2 = input(false, title="***If Using Cross Feature W/O Plotting 2ndMA - Make Sure 2ndMA Parameters are Set Correctly***")
 sd = input(false, title="Show Dots on Cross of Both MA's")
 
 // Calculate time condition
@@ -36,11 +33,6 @@ startDate = timestamp(fromYear, fromMonth, fromDay, 00, 00)
 finishDate = timestamp(toYear, toMonth, toDay, 00, 00)
 time_cond = time >= startDate and time <= finishDate
 
-// Calculate base functions
-haClose = UseHAcandles ? close : close
-haOpen = UseHAcandles ? open : open
-haHigh = UseHAcandles ? high : high
-haLow = UseHAcandles ? low : low
 
 // Calculate moving average and standard deviation
 //1rst MA
@@ -63,24 +55,24 @@ avg2 = atype2 == 1 ? ta.sma(src,len2) : atype2 == 2 ? ta.ema(src,len2) : atype2 
 
 out_2 = avg 
 out_3 = avg2
-ma_up = out_2 >= out_2[smoothe]
-ma_down = out_2 < out_2 [smoothe]
+
 circleYPosition = out_3
 
-stdev = ta.stdev(out_2, 30 )
+stdev = ta.stdev(out_2, 30)
 upperBand = out_2 + stdev
 lowerBand = out_2 - stdev
 buySignal = ta.crossover(close, lowerBand)
 sellSignal = ta.crossover(close, upperBand)
 
-plot(buySignal ? close : na, title="Buy Signal", color=color.green, linewidth=2)
-plot(sellSignal ? close : na, title="Sell Signal",color=color.red, linewidth=2)
+plot(upperBand , title="Buy Signal", color=color.green, linewidth=2)
+plot(lowerBand , title="Sell Signal",color=color.red, linewidth=2)
 plot(out_2 , title="Multi-Timeframe Moving Avg",  linewidth=4, color = color.blue)
+// plot(strategy.equity/10, title = "j", linewidth = 2, color = color.blue)
 
 //RSI
 length = input(14)
-overSold = input(30)
-overBought = input(70)
+overSold = input(35)
+overBought = input(65)
 price = close
 vrsi = ta.rsi(price, length)
 
@@ -97,10 +89,9 @@ hist = macd - signal
 // outvolume = ta.sma(ta.obv,10)
 
 
-
 // Main variables to apply conditions
 long = hist > 0   and vrsi < overBought  and buySignal
-short =hist< 0    and vrsi > overSold and sellSignal
+short= hist< 0    and vrsi > overSold and sellSignal
 exitLongCondition = vrsi > overBought and sellSignal
 exitShortCondition = vrsi < overSold and buySignal
 
@@ -115,16 +106,17 @@ if long
     strategy.entry("Long", strategy.long)
 if strategy.position_size > 0 
     strategy.exit("limit", "Long",  stop=stopLossLevel) 
-if exitLongCondition
-    strategy.close("Exit Long")
 
-//short
+if exitLongCondition
+    strategy.exit("Exit Long", limit = close )
+
+//shor
 if short
     strategy.entry("Short", strategy.short)
 if strategy.position_size < 0 
     strategy.exit("limit", "Short",  stop=stopLossLevelS)
 if exitShortCondition
-    strategy.close("Exit Short")
+    strategy.exit("Exit Short", limit = close)
 
 
 

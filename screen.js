@@ -64,8 +64,7 @@ var screens = [
   "https://dexscreener.com/polygon/0x561ed3fbeac3c4e5b060024666f9a1cd2aec7847",
   "https://dexscreener.com/avalanche/0xb448a6772648da6d16ab0167484242e07abf644e",
   //23
-  "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
-  "https://dexscreener.com/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
+
   //24
   "https://dexscreener.com/cronos/0xb6894f071da907301b4f0c4d87d5f2e42e22402d",
   "https://dexscreener.com/polygon/0xab86c5dd50f4e0b54ecb07c4fb07219c60150ebf",
@@ -132,6 +131,8 @@ var screens = [
   "https://dexscreener.com/fantom/0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29",
   "https://dexscreener.com/osmosis/731",
   //45
+  "https://dexscreener.com/polygon/0x7b23afe559433aace4d61ed65e225a74094defcb",
+  "https://dexscreener.com/avalanche/0x86783a149fe417831ae8c59dd0e2b60664a3dfd1",
 ];
 
 function createLinks() {
