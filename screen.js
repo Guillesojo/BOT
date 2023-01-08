@@ -78,8 +78,7 @@ var screens = [
   "https://dexscreener.com/bsc/0x89c68051543fa135b31c2ce7bd8cdf392345ff01",
   "https://dexscreener.com/polygon/0x5a6861566966654d0464ee5e3f3ec1a034f26cb",
   //28
-  "https://dexscreener.com/bsc/0xf4796d9c3f192cfe5ddaca5724378590c6977f14",
-  "https://dexscreener.com/fantom/0x83c382cc27b05cc133b1882bc8a468d3c44551680002000000000000000004f5-0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83-0x4f76664105ba7e35dd4904ec70f2042fc17563d9",
+
   //29
   //30
   "https://dexscreener.com/cronos/0x0fbab8a90cac61b481530aad3a64fe17b322c25d",
