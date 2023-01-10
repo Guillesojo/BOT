@@ -71,72 +71,114 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x78b1644539bb233d1477667ebd51d9db6ed7abcc",
 ];
 async function arbs() {
+  // Declaración de función  "getData" con dos parámetros: "urlList" y "callback"
+  //Llama a la API de Dexscreener y convierte la respuesta a JSON
   async function getData(urlList, callback) {
+    // Constante "responses" que contiene el resultado de la promesa de ejecutar "fetch" en cada URL de la lista "urlList"
     const responses = await Promise.all(urlList.map((url) => fetch(url)));
+    // Constante "dataList" que contiene el resultado de la promesa de convertir cada respuesta en formato JSON
     const dataList = await Promise.all(
       responses.map((response) => response.json())
     );
+    // Constante "results" que contiene el resultado de aplicar la función "callback" a cada elemento de "dataList" y su índice
     const results = dataList.map((data, i) => callback(data, i));
+    // Retorno de "results"
     return results;
   }
 
+  // Declaración de función "getpair1" para obtener la info del primer par
   async function getpair1() {
+    // Constante "prices" que contiene el resultado de la función "getData" con la lista de URLs "AP1" y una función "callback"
     const prices = await getData(AP1, (data, i) => {
+      // Modificación del contenido del elemento HTML con id "tickerA" más el índice más 1
       document.getElementById("tickerA" + (i + 1)).textContent =
         data.pair.baseToken.symbol + " on";
+      // Modificación del contenido del elemento HTML con id "priceA" más el índice más 1
       document.getElementById("priceA" + (i + 1)).textContent =
         data.pair.priceUsd;
+      // Modificación del contenido del elemento HTML con id "chainA" más el índice más 1
       document.getElementById("chainA" + (i + 1)).textContent =
         data.pair.chainId + ": ";
+      // Retorno del valor de "priceUsd"
       return data.pair.priceUsd;
     });
+    // Retorno de "prices"
     return prices;
   }
 
+  // Declaración de función "getpair1" para obtener la info del segundo par
+  //Hace lo mismo que la función "getpair1", solo cambian los id's del HTML
   async function getpair2() {
     const prices = await getData(AP2, (data, i) => {
-      document.getElementById("tickerB" + (i + 1)).textContent =
-        data.pair.baseToken.symbol + " on";
+      document.getElementById("tickerB" + (i + 1)).textcontent;
+      data.pair.baseToken.symbol + " on";
+
       document.getElementById("priceB" + (i + 1)).textContent =
         data.pair.priceUsd;
+
       document.getElementById("chainB" + (i + 1)).textContent =
         data.pair.chainId + ": ";
+
       return data.pair.priceUsd;
     });
+
+    // Retorno de "prices"
     return prices;
   }
 
+  // Declaración de función "diff", que compara los dos precios y reotrna la diferencia
   async function diff() {
+    // Declaración de una lista vacía "resul"
     const resul = [];
+    // Constante "price1" que contiene el resultado de la función "getpair1"
     const price1 = await getpair1();
+    // Constante "price2" que contiene el resultado de la función "getpair2"
     const price2 = await getpair2();
+    // Iteración a través de la longitud de "AP1"
     for (var i = 0; i < AP1.length; i++) {
+      // Constante "p1" que contiene el valor en la posición "i" de "price1"
       const p1 = price1[i];
+      // Constante "p2" que contiene el valor en la posición "i" de "price2"
       const p2 = price2[i];
+      // Constante "res" que contiene el resultado de dividir "p1" entre "p2" y multiplicarlo por 100 y restarle 100
       const res = (p1 / p2) * 100 - 100;
+      // Constante "absres" que contiene el valor absoluto de "res"
       const absres = Math.abs(res);
+      // Constante "result" que contiene el valor de "absres" con cuatro decimales
       const result = absres.toFixed(4);
+      // Modificación del contenido del elemento HTML con id "pricediff" más el índice más 1
       document.getElementById("pricediff" + (i + 1)).textContent = result + "%";
+      // Añadir "result" a la lista "resul"
       resul.push(result);
     }
+    // Retorno de "resul"
     return resul;
   }
+  // Constante "res" que contiene el resultado de la función "diff"
   const res = diff();
+  // Retorno de "res"
   return res;
 }
 
+// Declaración de función asíncrona "identify", esta hace que el % de diferencia cambie de color segun su valor
 async function identify() {
+  // Constante "results" que contiene el resultado de la función "arbs"
   const results = await arbs();
+  // Iteración a través de la longitud de "results"
   for (var i = 0; i < results.length; i++) {
+    // Si el valor en la posición "i" de "results" es mayor o igual a 5, cambia el color del elemento HTML con id "pricediff" más el índice más 1 a verde
     if (results[i] >= 5) {
       document.getElementById("pricediff" + (i + 1)).style.color = "green";
     } else {
+      // Si no, cambia el color del elemento HTML con id "pricediff" más el índice más 1 a rojo
       document.getElementById("pricediff" + (i + 1)).style.color = "red";
     }
   }
 }
 
+// Ejecución de la función "identify"
 identify();
+// Ejecución cada 30 segundos de las funciones "arbs" y "identify"
 setInterval(() => {
   arbs();
   identify();
