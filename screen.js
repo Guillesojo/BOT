@@ -107,27 +107,27 @@ var screens = [
   //36
   "https://dexscreener.com/fantom/0x297c8990134bf1ee08ae5d8805042fbac8781201",
   "https://dexscreener.com/kcc/0x080dbc31cb82bb3263a86ad062fe80281cdf22ba",
-  //37
-  "https://dexscreener.com/bsc/0x8e2132bb21143ef39098ba0428c7bcd2e0a20da6",
-  "https://dexscreener.com/polygon/0xd10bb4ed281a84492343573885168027cc625bf7",
-  //38
-  "https://dexscreener.com/polygon/0xd15eb8710e28c23993968e671807d572189cc86e",
-  "https://dexscreener.com/cronos/0x722f19bd9a1e5ba97b3020c6028c279d27e4293c",
-  //39
-  "https://dexscreener.com/polygon/0x290a4793b4e972188482b8046e7ea2ea5d3fdbaf",
-  "https://dexscreener.com/bsc/0x58aed290f42963a502626774bd8fa03f33c9b71f",
-  //40
-  "https://dexscreener.com/avalanche/0x11c0f9134d7db45e3dab7a78ac3c957a92229e8c",
-  "https://dexscreener.com/fantom/0xfdb9ab8b9513ad9e419cf19530fee49d412c3ee3",
-  //41
-  "https://dexscreener.com/cronos/0x2a560f2312cb56327ad5d65a03f1bfec10b62075",
-  "https://dexscreener.com/bsc/0xdcbc1d9d48016b8d5f3b0f9045eb3b72f38e6b93",
-  //42
-  "https://dexscreener.com/fantom/0x0e41768de15cccc1715fe8aefb6f948349427c140001000000000000000005b9-0x40df1ae6074c35047bff66675488aa2f9f6384f3-0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454",
-  "https://dexscreener.com/moonbeam/0x6775ff3828a19eb5926c0c4d572183ca15aa4c08",
-  //43
-  "https://dexscreener.com/fantom/0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29",
-  "https://dexscreener.com/osmosis/731",
+  // //37
+  // "https://dexscreener.com/bsc/0x8e2132bb21143ef39098ba0428c7bcd2e0a20da6",
+  // "https://dexscreener.com/polygon/0xd10bb4ed281a84492343573885168027cc625bf7",
+  // //38
+  // "https://dexscreener.com/polygon/0xd15eb8710e28c23993968e671807d572189cc86e",
+  // "https://dexscreener.com/cronos/0x722f19bd9a1e5ba97b3020c6028c279d27e4293c",
+  // //39
+  // "https://dexscreener.com/polygon/0x290a4793b4e972188482b8046e7ea2ea5d3fdbaf",
+  // "https://dexscreener.com/bsc/0x58aed290f42963a502626774bd8fa03f33c9b71f",
+  // //40
+  // "https://dexscreener.com/avalanche/0x11c0f9134d7db45e3dab7a78ac3c957a92229e8c",
+  // "https://dexscreener.com/fantom/0xfdb9ab8b9513ad9e419cf19530fee49d412c3ee3",
+  // //41
+  // "https://dexscreener.com/cronos/0x2a560f2312cb56327ad5d65a03f1bfec10b62075",
+  // "https://dexscreener.com/bsc/0xdcbc1d9d48016b8d5f3b0f9045eb3b72f38e6b93",
+  // //42
+  // "https://dexscreener.com/fantom/0x0e41768de15cccc1715fe8aefb6f948349427c140001000000000000000005b9-0x40df1ae6074c35047bff66675488aa2f9f6384f3-0xd67de0e0a0fd7b15dc8348bb9be742f3c5850454",
+  // "https://dexscreener.com/moonbeam/0x6775ff3828a19eb5926c0c4d572183ca15aa4c08",
+  // //43
+  // "https://dexscreener.com/fantom/0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29",
+  // "https://dexscreener.com/osmosis/731",
   //44
 ];
 

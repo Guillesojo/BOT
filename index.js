@@ -110,8 +110,8 @@ async function arbs() {
   //Hace lo mismo que la función "getpair1", solo cambian los id's del HTML
   async function getpair2() {
     const prices = await getData(AP2, (data, i) => {
-      document.getElementById("tickerB" + (i + 1)).textcontent;
-      data.pair.baseToken.symbol + " on";
+      document.getElementById("tickerB" + (i + 1)).textContent =
+        data.pair.baseToken.symbol + " on";
 
       document.getElementById("priceB" + (i + 1)).textContent =
         data.pair.priceUsd;

@@ -3,12 +3,12 @@ tickerid = syminfo.tickerid
 period = timeframe.period
 
 //@optimize
-strategy("Full strategy alert version", overlay=true, initial_capital = 40, default_qty_type=strategy.percent_of_equity, default_qty_value=170,commission_type=strategy.commission.percent , commission_value=0.52)
+strategy("K", overlay=true, initial_capital = 1000, default_qty_type=strategy.percent_of_equity, default_qty_value=100,commission_type=strategy.commission.percent , commission_value=0.52, risk_free_rate = 4)
 
 //time
 fromDay = input.int(defval = 1, title = "From Day", minval = 1, maxval = 31)
 fromMonth = input.int(defval = 1, title = "From Month", minval = 1, maxval = 12)
-fromYear = input.int(defval = 2023, title = "From Year", minval = 1970)
+fromYear = input.int(defval = 2020, title = "From Year", minval = 1970)
 toDay = input.int(defval = 31, title = "To Day", minval = 1, maxval = 31)
 toMonth = input.int(defval = 12, title = "To Month", minval = 1, maxval = 12)
 toYear = input.int(defval = 2023, title = "To Year", minval = 1970)
@@ -16,16 +16,15 @@ toYear = input.int(defval = 2023, title = "To Year", minval = 1970)
 
 len = input.int(25, minval=1, title="Length")
 src = input(close, title="Source")
-fast_length = input.int(title="Fast Length", defval=15)
-slow_length = input.int(title="Slow Length",  defval=20)
+fast_length = input.int(title="Fast Length", defval=12)
+slow_length = input.int(title="Slow Length",  defval=26)
 signal_length = input.int(title="Signal Smoothing", minval = 1, maxval = 50, defval = 9)
 sma_source = input.bool(title="Simple MA (Oscillator)",  defval=false)
 sma_signal = input.bool(title="Simple MA (Signal Line)",  defval=false)
 atype = input.int(1,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
-smoothe = input.int(2, minval=1, maxval=10, title="Color Smoothing")
 doma2 = input(false, title="Optional 2nd Moving Average")
 len2 = input(50, title="Moving Average Length - Optional 2nd MA")
-atype2 = input.int(7,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
+atype2 = input.int(4,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
 sd = input(false, title="Show Dots on Cross of Both MA's")
 
 // Calculate time condition
@@ -64,18 +63,17 @@ lowerBand = out_2 - stdev
 buySignal = ta.crossover(close, lowerBand)
 sellSignal = ta.crossover(close, upperBand)
 
-plot(upperBand , title="Buy Signal", color=color.green, linewidth=2)
-plot(lowerBand , title="Sell Signal",color=color.red, linewidth=2)
-plot(out_2 , title="Multi-Timeframe Moving Avg",  linewidth=4, color = color.blue)
-plot(out_3 , title="Multi-Timeframe Moving Avg",  linewidth=4, color = color.maroon)
-// plot(strategy.equity/10, title = "j", linewidth = 2, color = color.blue)
+// plot(upperBand , title="Buy Signal", color=color.green, linewidth=2)
+// plot(lowerBand , title="Sell Signal",color=color.red, linewidth=2)
+// plot(out_2 , title="Multi-Timeframe Moving Avg",  linewidth=4, color = color.blue)
 
-//RSI
+
+//RS
 length = input(14)
-overSold = input(35)
+overSold = input(40)
 overBought = input(60)
 price = close
-vrsi = ta.sma(ta.rsi(price, length),2)
+vrsi = ta.rsi(price, length)
 
 
 // Calculate MACD
@@ -84,37 +82,77 @@ slow_ma = sma_source ? ta.sma(src, slow_length) : ta.ema(src, slow_length)
 macd = fast_ma - slow_ma
 signal = sma_signal ? ta.sma(macd, signal_length) : ta.ema(macd, signal_length)
 hist = macd - signal
+cl = ta.sma(close,2)
+st = ta.sma(open,2)
+
+// Calculate the expected return and risk of the position
+// Calculate the optimal position size using the Kelly criterion
+expected_return = (close - open) / open
+risk = (high - low) / open
+r = expected_return / math.sqrt(risk)
+plot(r*10, title = "j", linewidth = 2, color = color.green)
+
+expected_returnS = (open - close) / open
+riskS = (high - low) / open
+rS = ta.sma(expected_returnS / math.sqrt(riskS),4)
+plot(rS*10, title = "jN", linewidth = 2, color = color.blue)
+
+lengthmom = input(50, title="BB Length")
+mult = input(2.0,title="BB MultFactor")
+lengthKC=input(50, title="KC Length")
+multKC = input(1.5, title="KC MultFactor")
+
+useTrueRange = input.bool(true, title="Use TrueRange (KC)")
+
+// Calculate BB
+basis = ta.sma(src, length)
+dev = multKC * ta.stdev(src, length)
+upperBB = basis + dev
+lowerBB = basis - dev
+
+// Calculate KC
+ma = ta.sma(src, lengthKC)
+rangemom = useTrueRange ? ta.tr : (high - low)
+rangema = ta.sma(rangemom, lengthKC)
+upperKC = ma + rangema * multKC
+lowerKC = ma - rangema * multKC
+
+sqzOn  = (lowerBB > lowerKC) and (upperBB < upperKC)
+sqzOff = (lowerBB < lowerKC) and (upperBB > upperKC)
+noSqz  = (sqzOn == false) and (sqzOff == false)
+
+val = ta.linreg(src  -  math.avg(math.avg(ta.highest(high, lengthKC), ta.lowest(low, lengthKC)),ta.sma(close,lengthKC)),  lengthKC,0)
+// plot(val*10, linewidth = 2, color=color.red)
 
 
-// Main variables to apply conditions
-long = hist > 0   and vrsi < overBought and buySignal and out_3 < lowerBand * 0.988
-short= hist < 0   and vrsi > overSold and sellSignal and out_3 > upperBand * 1.021
-exitLongCondition = vrsi > overBought and sellSignal
-exitShortCondition = vrsi < overSold and buySignal 
+long = hist > 0  and vrsi < overBought and buySignal  and r > 0.022 and val>-110 
+short= hist< 0   and vrsi > overSold   and sellSignal and rS< -0.011 and val <350 
+exitLongCondition = vrsi > overBought and sellSignal and rS< -0.011  
+exitShortCondition = vrsi < overSold and buySignal and r > 0.022 
 
 // Declare input parameter for stop loss percentage
-stopLossPercent = input.float(title="Stop Loss Percentage", minval=0.0, maxval=100.0, defval=95)
-stopLossPercentS = input.float(title="Stop Loss Percentage", minval=100, maxval=200, defval=105)
+stopLossPercent = input.float(title="Stop Loss Percentage", minval=0.0, maxval=100.0, defval=94)
+stopLossPercentS = input.float(title="Stop Loss Percentage", minval=100, maxval=200, defval=104)
 stopLossLevel = strategy.position_avg_price * (stopLossPercent / 100)
 stopLossLevelS = strategy.position_avg_price * (stopLossPercentS/ 100)
 
+
 //long
-if long
+if long 
     strategy.entry("Long", strategy.long)
 if strategy.position_size > 0 
-    strategy.exit("limit", "Long",  stop=stopLossLevel) 
+    strategy.exit("limit", "Long",  stop=stopLossLevel  ) 
 
 if exitLongCondition
-    strategy.exit("Exit Long", limit = close )
+    strategy.exit("Exit Long", limit = ta.sma(close,2))
 
-
-//short
-if short
+//shor
+if short 
     strategy.entry("Short", strategy.short)
 if strategy.position_size < 0 
-    strategy.exit("limit", "Short",  stop=stopLossLevelS)
+    strategy.exit("limit", "Short",  stop=stopLossLevelS )
 if exitShortCondition
-    strategy.exit("Exit Short", limit = close)
+    strategy.exit("Exit Short", limit = ta.sma(close,2))
 
 
 
