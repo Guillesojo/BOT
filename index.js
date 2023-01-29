@@ -70,6 +70,9 @@ const AP2 = [
   "https://api.dexscreener.com/latest/dex/pairs/bsc/0x41138b6466e1d92ae05495735d46586b74efad75",
   "https://api.dexscreener.com/latest/dex/pairs/polygon/0x78b1644539bb233d1477667ebd51d9db6ed7abcc",
 ];
+
+Notification.requestPermission();
+
 async function arbs() {
   // Declaración de función  "getData" con dos parámetros: "urlList" y "callback"
   //Llama a la API de Dexscreener y convierte la respuesta a JSON
@@ -154,36 +157,27 @@ async function arbs() {
     // Retorno de "resul"
     return resul;
   }
-  // Constante "res" que contiene el resultado de la función "diff"
-  const res = diff();
-  // Retorno de "res"
-  return res;
-}
-
-// Declaración de función asíncrona "identify", esta hace que el % de diferencia cambie de color segun su valor
-async function identify() {
-  // Constante "results" que contiene el resultado de la función "arbs"
-  const results = await arbs();
-  // Iteración a través de la longitud de "results"
-  for (var i = 0; i < results.length; i++) {
-    // Si el valor en la posición "i" de "results" es mayor o igual a 5, cambia el color del elemento HTML con id "pricediff" más el índice más 1 a verde
-
-    Notification.requestPermission();
-
-    if (results[i] >= 5) {
-      document.getElementById("pricediff" + (i + 1)).style.color = "green";
-      new Notification("Hay un par con mas de 5% de diferencia");
-    } else {
-      // Si no, cambia el color del elemento HTML con id "pricediff" más el índice más 1 a rojo
-      document.getElementById("pricediff" + (i + 1)).style.color = "red";
+  async function identify() {
+    const results = await diff();
+    console.log(results);
+    const ticker = await getData(AP1, (data, i) => {
+      return data.pair.baseToken.symbol;
+    });
+    console.log(ticker);
+    for (var i = 0; i < results.length; i++) {
+      if (results[i] >= 5) {
+        document.getElementById("pricediff" + (i + 1)).style.color = "green";
+        new Notification("Hay un par con mas de 5% de diferencia " + ticker[i]);
+      } else {
+        document.getElementById("pricediff" + (i + 1)).style.color = "red";
+      }
     }
   }
+  identify();
 }
 
-// Ejecución de la función "identify"
-identify();
+arbs();
 // Ejecución cada 30 segundos de las funciones "arbs" y "identify"
 setInterval(() => {
   arbs();
-  identify();
 }, 30000);
