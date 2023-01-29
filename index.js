@@ -169,6 +169,9 @@ async function identify() {
     // Si el valor en la posición "i" de "results" es mayor o igual a 5, cambia el color del elemento HTML con id "pricediff" más el índice más 1 a verde
     if (results[i] >= 5) {
       document.getElementById("pricediff" + (i + 1)).style.color = "green";
+        Notification.requestPermission().then(perm => {
+            alert(perm)
+        })
     } else {
       // Si no, cambia el color del elemento HTML con id "pricediff" más el índice más 1 a rojo
       document.getElementById("pricediff" + (i + 1)).style.color = "red";
