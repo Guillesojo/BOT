@@ -3,7 +3,7 @@ tickerid = syminfo.tickerid
 period = timeframe.period
 
 //@optimize
-strategy("Full strategy alert version", overlay=true, initial_capital = 1000, default_qty_type=strategy.percent_of_equity, default_qty_value=170,commission_type=strategy.commission.percent , commission_value=0.52)
+strategy("K", overlay=true, initial_capital = 1000, default_qty_type=strategy.percent_of_equity, default_qty_value=100,commission_type=strategy.commission.percent , commission_value=0.52, risk_free_rate = 4)
 
 //time
 fromDay = input.int(defval = 1, title = "From Day", minval = 1, maxval = 31)
@@ -24,7 +24,7 @@ sma_signal = input.bool(title="Simple MA (Signal Line)",  defval=false)
 atype = input.int(1,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
 doma2 = input(false, title="Optional 2nd Moving Average")
 len2 = input(50, title="Moving Average Length - Optional 2nd MA")
-atype2 = input.int(7,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
+atype2 = input.int(4,minval=1,maxval=7,title="1=SMA, 2=EMA, 3=WMA, 4=HullMA, 5=VWMA, 6=RMA, 7=TEMA")
 sd = input(false, title="Show Dots on Cross of Both MA's")
 
 // Calculate time condition
@@ -34,7 +34,7 @@ time_cond = time >= startDate and time <= finishDate
 
 
 // Calculate moving average and standard deviation
-//1rst MA
+//1st MA
 hullma = ta.wma(2*ta.wma(src, len/2)-ta.wma(src, len), math.round(math.sqrt(len)))
 ema1 = ta.ema(src, len)
 ema2 = ta.ema(ema1, len)
@@ -42,20 +42,9 @@ ema3 = ta.ema(ema2, len)
 tema = 3 * (ema1 - ema2) + ema3
 
 avg = atype == 1 ? ta.sma(src,len) : atype == 2 ? ta.ema(src,len) : atype == 3 ? ta.wma(src,len) : atype == 4 ? hullma : atype == 5 ? ta.vwma(src, len) : atype == 6 ? ta.rma(src,len) : tema
-
-//2nd MA
-hullma2 =ta.wma(2*ta.wma(src, len2/2)-ta.wma(src, len2), math.round(math.sqrt(len2)))
-sema1 = ta.ema(src, len2)
-sema2 = ta.ema(sema1, len2)
-sema3 = ta.ema(sema2, len2)
-stema = 3 * (sema1 - sema2) + sema3
-
-avg2 = atype2 == 1 ? ta.sma(src,len2) : atype2 == 2 ? ta.ema(src,len2) : atype2 == 3 ? ta.wma(src,len2) : atype2 == 4 ? hullma2 : atype2 == 5 ? ta.vwma(src, len2) : atype2 == 6 ? ta.rma(src,len2) : tema
-
 out_2 = avg 
-out_3 = avg2
 
-circleYPosition = out_3
+
 
 stdev = ta.stdev(out_2, 30)
 upperBand = out_2 + stdev
@@ -70,7 +59,7 @@ sellSignal = ta.crossover(close, upperBand)
 
 //RS
 length = input(14)
-overSold = input(35)
+overSold = input(40)
 overBought = input(65)
 price = close
 vrsi = ta.rsi(price, length)
@@ -90,12 +79,12 @@ st = ta.sma(open,2)
 expected_return = (close - open) / open
 risk = (high - low) / open
 r = expected_return / math.sqrt(risk)
-plot(r*1000, title = "j", linewidth = 2, color = color.green)
+plot(r*10, title = "j", linewidth = 2, color = color.green)
 
 expected_returnS = (open - close) / open
 riskS = (high - low) / open
-rS = expected_returnS / math.sqrt(riskS)
-plot(rS*1000, title = "jN", linewidth = 2, color = color.blue)
+rS = ta.sma(expected_returnS / math.sqrt(riskS),4)
+plot(rS*10, title = "jN", linewidth = 2, color = color.blue)
 
 lengthmom = input(50, title="BB Length")
 mult = input(2.0,title="BB MultFactor")
@@ -105,14 +94,13 @@ multKC = input(1.5, title="KC MultFactor")
 useTrueRange = input.bool(true, title="Use TrueRange (KC)")
 
 // Calculate BB
-source = close
-basis = ta.sma(source, length)
-dev = multKC * ta.stdev(source, length)
+basis = ta.sma(src, length)
+dev = multKC * ta.stdev(src, length)
 upperBB = basis + dev
 lowerBB = basis - dev
 
 // Calculate KC
-ma = ta.sma(source, lengthKC)
+ma = ta.sma(src, lengthKC)
 rangemom = useTrueRange ? ta.tr : (high - low)
 rangema = ta.sma(rangemom, lengthKC)
 upperKC = ma + rangema * multKC
@@ -122,19 +110,18 @@ sqzOn  = (lowerBB > lowerKC) and (upperBB < upperKC)
 sqzOff = (lowerBB < lowerKC) and (upperBB > upperKC)
 noSqz  = (sqzOn == false) and (sqzOff == false)
 
-val = ta.linreg(source  -  math.avg(math.avg(ta.highest(high, lengthKC), ta.lowest(low, lengthKC)),ta.sma(close,lengthKC)),  lengthKC,0)
+val = ta.linreg(src  -  math.avg(math.avg(ta.highest(high, lengthKC), ta.lowest(low, lengthKC)),ta.sma(close,lengthKC)),  lengthKC,0)
 // plot(val*10, linewidth = 2, color=color.red)
 
 
-// Main variables to apply conditions
 long = hist > 0  and vrsi < overBought and buySignal  and r > 0.022 and val>-110 
-short= hist< 0   and vrsi > overSold   and sellSignal and rS< -0.011 and val <300  
-exitLongCondition = vrsi > overBought and sellSignal and rS< -0.011  
+short= hist< 0   and vrsi > overSold   and sellSignal and rS< -0.02 and val <310
+exitLongCondition = vrsi > overBought and sellSignal and rS< -0.019 
 exitShortCondition = vrsi < overSold and buySignal and r > 0.022 
 
 // Declare input parameter for stop loss percentage
 stopLossPercent = input.float(title="Stop Loss Percentage", minval=0.0, maxval=100.0, defval=94)
-stopLossPercentS = input.float(title="Stop Loss Percentage", minval=100, maxval=200, defval=104)
+stopLossPercentS = input.float(title="Stop Loss Percentage", minval=100, maxval=200, defval=103.5)
 stopLossLevel = strategy.position_avg_price * (stopLossPercent / 100)
 stopLossLevelS = strategy.position_avg_price * (stopLossPercentS/ 100)
 
